@@ -1,5 +1,12 @@
 #!/bin/bash
 
+apt update && apt upgrade -y
+# For update and upgrade:
+apt install fish
+wget https://raw.githubusercontent.com/sunresh/termux/main/h.sh -o h.sh
+
+fish
+
 # Function to display section headers
 print_section_header() {
     echo ""
