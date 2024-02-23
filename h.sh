@@ -2,7 +2,9 @@
 
 # Function to display section headers
 print_section_header() {
+    echo ""
     echo "______________________"
+    echo ""
 }
 
 # Function to display cheat codes
