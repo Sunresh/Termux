@@ -6,8 +6,6 @@ pkg install fish
 
 wget https://raw.githubusercontent.com/sunresh/termux/main/h.sh -O ~/h.sh
 
-fish
-
 # Function to display section headers
 print_section_header() {
     echo ""
@@ -120,3 +118,7 @@ echo "Example: ps aux"
 
 print_cheat_code "kill       : Terminate processes."
 echo "Example: kill PID"
+
+fish
+
+
