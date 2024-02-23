@@ -2,7 +2,8 @@
 
 apt update && apt upgrade -y
 # For update and upgrade:
-apt install fish
+pkg install fish
+
 wget https://raw.githubusercontent.com/sunresh/termux/main/h.sh -O ~/h.sh
 
 fish
