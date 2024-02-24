@@ -1,10 +1,5 @@
 #!/bin/bash
 
-apt update && apt upgrade -y
-# For update and upgrade:
-pkg install fish
-
-wget https://raw.githubusercontent.com/sunresh/termux/main/h.sh -O ~/h.sh
 
 # Function to display section headers
 print_section_header() {
@@ -15,8 +10,8 @@ print_section_header() {
 
 # Function to display cheat codes
 print_cheat_code() {
-    echo "$1"
     print_section_header
+    echo "$1"
 }
 
 # Display cheat codes for reference
@@ -118,6 +113,12 @@ echo "Example: ps aux"
 
 print_cheat_code "kill       : Terminate processes."
 echo "Example: kill PID"
+
+apt update && apt upgrade -y
+
+pkg install fish
+
+wget https://raw.githubusercontent.com/sunresh/termux/main/h.sh -O ~/h.sh
 
 fish
 
