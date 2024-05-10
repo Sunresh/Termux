@@ -13,9 +13,6 @@ print_cheat_code() {
     echo "Example: $3"
 }
 
-# Update and upgrade Termux packages
-apt update && apt upgrade -y
-
 # Install fish shell
 # pkg install fish
 
@@ -29,6 +26,10 @@ choose_option() {
   PS3="     Enter your choice: "
   select opt in "${options[@]}"; do
     case $opt in
+      "update")
+        apt update && apt upgrade -y
+        break
+        ;;
       "Help")
         clear  # Clear the screen before displaying help
         print_section_header
