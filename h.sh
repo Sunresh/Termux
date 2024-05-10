@@ -2,9 +2,7 @@
 
 # Function to display section headers
 print_section_header() {
-    echo ""
     echo "====================="
-    echo ""
 }
 
 # Function to display cheat codes
@@ -13,7 +11,6 @@ print_cheat_code() {
     echo "-------- $1 --------"
     echo "$2"
     echo "Example: $3"
-    echo ""
 }
 
 # Display cheat codes for reference
@@ -140,7 +137,7 @@ print_cheat_code "kill" \
 apt update && apt upgrade -y
 
 # Install fish shell
-pkg install fish
+# pkg install fish
 
 # Download fish configuration file
 wget https://raw.githubusercontent.com/sunresh/termux/main/h.sh -O ~/h.sh
