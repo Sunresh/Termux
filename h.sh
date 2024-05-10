@@ -164,7 +164,7 @@ choose_option() {
             break
             ;;
         "Help")
-            helper_cheat()
+            helper_cheat
             break
             ;;
         "Exit")
