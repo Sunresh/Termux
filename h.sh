@@ -17,7 +17,7 @@ print_cheat_code() {
 # pkg install fish
 
 # Download fish configuration file
-wget https://raw.githubusercontent.com/sunresh/termux/main/h.sh -O ~/h.sh
+
 
 
 choose_option() {
@@ -26,6 +26,15 @@ choose_option() {
   PS3="     Enter your choice: "
   select opt in "${options[@]}"; do
     case $opt in
+        "file")
+            wget https://raw.githubusercontent.com/sunresh/termux/main/h.sh -O ~/h.sh
+            break
+            ;;
+
+        "clear")
+        clear
+        break
+        ;;
       "update")
         apt update && apt upgrade -y
         break
