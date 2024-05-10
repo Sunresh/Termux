@@ -60,7 +60,7 @@ choose_option() {
 
         print_cheat_code "ls -la" \
             "List all files and folders in detailed format (including hidden)." \
-            "ls -la"
+            "ls -la"\
 
         print_cheat_code "pwd" \
             "Print the current working directory." \
