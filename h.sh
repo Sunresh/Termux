@@ -179,7 +179,7 @@ choose_option() {
                     ;;
                 "Exit")
                     echo "Exiting..."
-                    break
+                    return
                     ;;
                 *)
                     echo "Invalid option. Please choose a valid number."
