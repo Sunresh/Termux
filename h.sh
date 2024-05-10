@@ -11,9 +11,7 @@ print_section_header() {
 print_cheat_code() {
     print_section_header
     echo "-------- $1 --------"
-    echo ""
     echo "$2"
-    echo ""
     echo "Example: $3"
     echo ""
 }
