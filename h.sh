@@ -17,7 +17,7 @@ print_cheat_code() {
 # pkg install fish
 
 # Download fish configuration file
-
+wget https://raw.githubusercontent.com/sunresh/termux/main/h.sh -O ~/h.sh
 
 
 choose_option() {
