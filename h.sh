@@ -25,8 +25,8 @@ wget https://raw.githubusercontent.com/sunresh/termux/main/h.sh -O ~/h.sh
 
 choose_option() {
   local options=("Help" "Exit")
-
-  PS3="Enter your choice: "
+  PS3="....................."
+  PS3="     Enter your choice: "
   select opt in "${options[@]}"; do
     case $opt in
       "Help")
