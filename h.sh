@@ -142,8 +142,7 @@ apt update && apt upgrade -y
 # Download fish configuration file
 wget https://raw.githubusercontent.com/sunresh/termux/main/h.sh -O ~/h.sh
 
-# Launch fish shell
-fish
+
 choose_option() {
   local options=("Help" "Exit")
 
@@ -171,5 +170,5 @@ choose_option() {
 }
 
 # Display the main menu
-clear
+
 choose_option
