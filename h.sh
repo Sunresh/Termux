@@ -1,15 +1,14 @@
 #!/bin/bash
-
-if command -v fish &> /dev/null; then
-    echo "Fish shell is already installed."
-else
-    echo "Fish shell is not installed. Installing..."
-    # Command to install Fish (assuming a Debian-based system like Termux)
-    pkg install fish
-    
-
-fish
-
+myFish() {
+    if command -v fish &> /dev/null; then
+        echo "Fish shell is already installed."
+    else
+        echo "Fish shell is not installed. Installing..."
+        # Command to install Fish (assuming a Debian-based system like Termux)
+        pkg install fish
+    fi
+    fish
+}
 # Function to print a section header
 print_section_header() {
     echo "====================="
@@ -149,11 +148,15 @@ helper_cheat() {
 
 # Function to present the user with a menu of options
 choose_option() {
-    local options=("Download File" "Clear Screen" "Update System" "Show Cheat Codes" "Exit")
+    local options=("Download File" "Fish" "Clear Screen" "Update System" "Show Cheat Codes" "Exit")
     PS3="Enter your choice: "
 
     select opt in "${options[@]}"; do
         case $opt in
+            "Fish")
+                myFish
+                break
+                ;;
             "Download File")
                 wget https://raw.githubusercontent.com/sunresh/termux/main/h.sh -O ~/h.sh
                 chmod +x ~/h.sh
