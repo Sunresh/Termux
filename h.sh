@@ -6,7 +6,7 @@ else
     echo "Fish shell is not installed. Installing..."
     # Command to install Fish (assuming a Debian-based system like Termux)
     pkg install fish
-fi
+    
 
 fish
 
