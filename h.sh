@@ -165,5 +165,6 @@ choose_option() {
 }
 
 # Display the main menu
+clear
 
 choose_option
