@@ -144,3 +144,32 @@ wget https://raw.githubusercontent.com/sunresh/termux/main/h.sh -O ~/h.sh
 
 # Launch fish shell
 fish
+choose_option() {
+  local options=("Help" "Exit")
+
+  PS3="Enter your choice: "
+  select opt in "${options[@]}"; do
+    case $opt in
+      "Help")
+        clear  # Clear the screen before displaying help
+        print_section_header
+        echo "Termux Cheat Codes:"
+        # Call your existing functions to display cheat codes
+        print_cheat_code "nano" "..."  # ... represents existing content
+        # ... other cheat code functions ...
+        break
+        ;;
+      "Exit")
+        echo "Exiting..."
+        break
+        ;;
+      *)
+        echo "Invalid option. Please choose 1 or 2."
+        ;;
+    esac
+  done
+}
+
+# Display the main menu
+clear
+choose_option
