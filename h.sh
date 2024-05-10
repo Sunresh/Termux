@@ -1,5 +1,15 @@
 #!/bin/bash
 
+if command -v fish &> /dev/null; then
+    echo "Fish shell is already installed."
+else
+    echo "Fish shell is not installed. Installing..."
+    # Command to install Fish (assuming a Debian-based system like Termux)
+    pkg install fish
+fi
+
+fish
+
 # Function to print a section header
 print_section_header() {
     echo "====================="
