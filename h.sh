@@ -151,16 +151,24 @@ myCurl() {
   # Prompt the user for the URL
   read -p "Enter your URL: " url
   read -p "Enter file name: " outfile
+  read -p "folder in sdcard: " folder
 
-  # Validate the URL format (optional but recommended)
+  # Validate URL format (optional)
   #if [[ ! "$url" =~ ^https?:// ]]; then
   #  echo "Error: Invalid URL format. Please start with 'http://' or 'https://'."
-  #  return 1  # Indicate error for potential use in a script
+  #  return 1
   #fi
-  curl -o $outfile https://www.$url 
-  # Echo the validated URL
+
+  # Check and create folder if needed
+  if [ ! -d "/sdcard/$folder" ]; then
+    echo "Folder '$folder' not found. Creating..."
+    mkdir "/sdcard/$folder" || { echo "Error creating folder"; return 1; }
+  fi
+
+  curl -o "/sdcard/$folder/$outfile" "https://www.$url"
   echo "$url"
 }
+
 
 # Function to present the user with a menu of options
 choose_option() {
