@@ -150,13 +150,14 @@ helper_cheat() {
 myCurl() {
   # Prompt the user for the URL
   read -p "Enter your URL: " url
+  read -p "Enter file name: " outfile
 
   # Validate the URL format (optional but recommended)
-  if [[ ! "$url" =~ ^https?:// ]]; then
-    echo "Error: Invalid URL format. Please start with 'http://' or 'https://'."
-    return 1  # Indicate error for potential use in a script
-  fi
-
+  #if [[ ! "$url" =~ ^https?:// ]]; then
+  #  echo "Error: Invalid URL format. Please start with 'http://' or 'https://'."
+  #  return 1  # Indicate error for potential use in a script
+  #fi
+  curl -o $outfile https://www.$url 
   # Echo the validated URL
   echo "$url"
 }
