@@ -146,41 +146,67 @@ helper_cheat() {
         "kill 1234"
 }
 
+
+myCurl() {
+  # Prompt the user for the URL
+  read -p "Enter your URL: " url
+
+  # Validate the URL format (optional but recommended)
+  if [[ ! "$url" =~ ^https?:// ]]; then
+    echo "Error: Invalid URL format. Please start with 'http://' or 'https://'."
+    return 1  # Indicate error for potential use in a script
+  fi
+
+  # Echo the validated URL
+  echo "$url"
+}
+
 # Function to present the user with a menu of options
 choose_option() {
-    local options=("Download File" "Fish" "Clear Screen" "Update System" "Show Cheat Codes" "Exit")
+    local options=("URL curl" "Download File" "Fish" "Clear Screen" "Update System" "Show Cheat Codes" "Exit")
     PS3="Enter your choice: "
 
     while true; do
         select opt in "${options[@]}"; do
             case $opt in
+                "URL curl")
+                    myCurl
+                    break
+                    ;;
+
                 "Fish")
                     myFish
                     break
                     ;;
+
                 "Download File")
                     wget https://raw.githubusercontent.com/sunresh/termux/main/h.sh -O ~/h.sh
                     chmod +x ~/h.sh
                     echo "File downloaded and set as executable."
                     break
                     ;;
+
                 "Clear Screen")
                     clear
                     break
                     ;;
+
                 "Update System")
                     apt update && apt upgrade -y
                     echo "System updated."
                     break
                     ;;
+
                 "Show Cheat Codes")
                     helper_cheat
                     break
                     ;;
+
                 "Exit")
                     echo "Exiting..."
                     return
                     ;;
+
                 *)
                     echo "Invalid option. Please choose a valid number."
                     ;;
