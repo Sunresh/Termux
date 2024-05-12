@@ -169,15 +169,23 @@ myCurl() {
   echo "$url"
 }
 
+Myter(){
+    cp -r "/sdcard/Myter" ~/
+}
 
 # Function to present the user with a menu of options
 choose_option() {
-    local options=("URL curl" "Download File" "Fish" "Clear Screen" "Update System" "Show Cheat Codes" "Exit")
+    local options=("URL curl" "Myter" "Download File" "Fish" "Clear Screen" "Update System" "Show Cheat Codes" "Exit")
     PS3="Enter your choice: "
 
     while true; do
         select opt in "${options[@]}"; do
             case $opt in
+                "Myter")
+                    MyTer
+                    break
+                    ;;
+
                 "URL curl")
                     myCurl
                     break
