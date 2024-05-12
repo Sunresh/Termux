@@ -170,7 +170,7 @@ myCurl() {
 }
 
 Mytering(){
-    cp -r "/sdcard/Myter" ~/
+    cp -r "/sdcard/Myter/py.py" ~/
 }
 
 # Function to present the user with a menu of options
