@@ -169,7 +169,7 @@ myCurl() {
   echo "$url"
 }
 
-Myter(){
+Mytering(){
     cp -r "/sdcard/Myter" ~/
 }
 
@@ -182,7 +182,7 @@ choose_option() {
         select opt in "${options[@]}"; do
             case $opt in
                 "Myter")
-                    Myter
+                    Mytering
                     break
                     ;;
 
