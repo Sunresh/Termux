@@ -182,7 +182,7 @@ choose_option() {
         select opt in "${options[@]}"; do
             case $opt in
                 "Myter")
-                    MyTer
+                    Myter
                     break
                     ;;
 
