@@ -197,7 +197,7 @@ choose_option() {
                     ;;
 
                 "Download File")
-                    wget https://raw.githubusercontent.com/sunresh/termux/main/h.sh -O ~/h.sh
+                    curl -k -o ~/h.sh https://raw.githubusercontent.com/sunresh/termux/main/h.sh
                     chmod +x ~/h.sh
                     echo "File downloaded and set as executable."
                     break
