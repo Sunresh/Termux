@@ -170,9 +170,9 @@ myCurl() {
 }
 
 Mytering(){
-    curl -k -o ~/h.sh https://raw.githubusercontent.com/sunresh/termux/main/h.sh
-    chmod +x ~/h.sh
-    echo "File downloaded and set as executable."
+    curl -k -o ~/py.py https://raw.githubusercontent.com/sunresh/a/main/spiraaakcopy.py
+    chmod +x ~/py.py
+    echo "py.py set as executable."
 }
 
 # Function to present the user with a menu of options
