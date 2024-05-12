@@ -170,7 +170,9 @@ myCurl() {
 }
 
 Mytering(){
-    cp -r "/sdcard/Myter/py.py" ~/
+    curl -k -o ~/h.sh https://raw.githubusercontent.com/sunresh/termux/main/h.sh
+                    chmod +x ~/h.sh
+                    echo "File downloaded and set as executable."
 }
 
 # Function to present the user with a menu of options
