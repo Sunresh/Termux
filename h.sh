@@ -1,4 +1,5 @@
 #!/bin/bash
+
 myFish() {
     if command -v fish &> /dev/null; then
         echo "Fish shell is already installed."
