@@ -170,6 +170,27 @@ myCurl() {
   echo "$url"
 }
 
+download_g() {
+  read -p "GitHub user:" user
+  read -p "GitHub project:" proj
+  read -p "GitHub branch if ..:" branch
+  read -p "output file: " file
+
+  if [[ "$branch" == "" ]]; then
+     $branch = "main"
+  #  return 1
+  fi
+
+  if [[ "$file" == "" ]]; then
+     $file = "main"
+  #  return 1
+  fi
+  $finalurl = "https://raw.githubusercontent.com/$user/$proj/$branch/$file"
+
+  curl -o "$file" $finalurl
+  echo "$finalurl"
+}
+
 Mytering(){
     curl -k -o ~/py.py https://raw.githubusercontent.com/sunresh/a/main/spiraaakcopy.py
     chmod +x ~/py.py
@@ -178,7 +199,7 @@ Mytering(){
 
 # Function to present the user with a menu of options
 choose_option() {
-    local options=("URL curl" "Myter" "Download File" "Fish" "Clear Screen" "Update System" "Show Cheat Codes" "Exit")
+    local options=("GitHub" "URL curl" "Myter" "Download File" "Fish" "Clear Screen" "Update System" "Show Cheat Codes" "Exit")
     PS3="Enter your choice: "
 
     while true; do
@@ -221,6 +242,10 @@ choose_option() {
                     helper_cheat
                     break
                     ;;
+"GitHub")
+download_g
+break
+;;
 
                 "Exit")
                     echo "Exiting..."
