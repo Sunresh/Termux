@@ -171,23 +171,23 @@ myCurl() {
 }
 
 download_g() {
-  read -p "GitHub user:" user
-  read -p "GitHub project:" proj
-  read -p "GitHub branch if ..:" branch
+  read -p "GitHub user: " user
+  read -p "GitHub project: " proj
+  read -p "GitHub branch (leave empty for 'main'): " branch
   read -p "output file: " file
 
-  if [[ "$branch" == "" ]]; then
-     $branch = "main"
-  #  return 1
+  if [[ -z "$branch" ]]; then
+    branch="main"
   fi
 
-  if [[ "$file" == "" ]]; then
-     $file = "main"
-  #  return 1
+  if [[ -z "$file" ]]; then
+    echo "Output file cannot be empty."
+    return 1
   fi
-  $finalurl = "https://raw.githubusercontent.com/$user/$proj/$branch/$file"
 
-  curl -o "$file" $finalurl
+  finalurl="https://raw.githubusercontent.com/$user/$proj/$branch/$file"
+
+  curl -o "$file" "$finalurl"
   echo "$finalurl"
 }
 
