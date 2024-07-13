@@ -58,13 +58,13 @@ main() {
 
 clone_repository() {
     echo "Cloning a repository..."
-    read -p "Enter the GitHub repository URL: " repo_url
+    read -p "Enter GitHub repo: " repo_url
     read -p "Enter the local directory name (press Enter for default): " local_dir
 
     if [ -z "$local_dir" ]; then
-        git clone "$repo_url"
+        git clone "https://www.github.com/sunresh/$repo_url"
     else
-        git clone "$repo_url" "$local_dir"
+        git clone "https://www.github.com/sunresh/$repo_url" "$local_dir"
     fi
 
     if [ $? -eq 0 ]; then
