@@ -198,6 +198,46 @@ Mytering(){
 }
 
 # Function to present the user with a menu of options
+
+dowload_h_file(){
+curl -k -o ~/h.sh https://raw.githubusercontent.com/sunresh/termux/main/h.sh
+                    chmod +x ~/h.sh
+                    echo "File downloaded and set as executable."
+}
+update_termux(){
+apt update && apt upgrade -y
+                    echo "System updated."
+}
+# Main menu function
+show_menu() {
+    echo "Sunresh Operations Menu:"
+    echo "1. Set up GitHub"
+    echo "2. Clone a repository"
+    echo "3. Push changes to a repository"
+    echo "4. Exit"
+    echo "5. Clone a repository"
+    echo "6. Push changes to a repository"
+    echo "7. Exit"
+    echo "8. Clone a repository"
+    echo "9. Exit"
+  
+    read -p "Enter your choice (1-9): " choice
+
+    case $choice in
+        1) Mytering ;;
+        2) myCurl ;;
+        3) myFish ;;
+        4) dowload_h_file ;;
+        5) clear ;;
+        6) helper_cheat ;;
+        7) update_termux ;;
+        8) myFish ;;
+
+        9) exit 0 ;;
+        *) echo "Invalid choice. Please try again." ;;
+    esac
+}
+
 choose_option() {
     local options=("GitHub" "URL curl" "Myter" "Download File" "Fish" "Clear Screen" "Update System" "Show Cheat Codes" "Exit")
     PS3="Enter your choice: "
