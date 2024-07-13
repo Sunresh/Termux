@@ -214,13 +214,13 @@ apt update && apt upgrade -y
 # Main menu function
 show_menu() {
     echo "Sunresh Operations Menu:"
-    echo "_/_/_/_/_/_/_/_/_/_/_/_/"
-    echo "1. mytering    2. mycurl"
-    echo "3. fish        4. download"
-    echo "5. Clear       6. cheate"
-    echo "7. update      8. fish"
-    echo "9. Exit"
-    echo "_/_/_/_/_/_/_/_/_/_/_/_/"
+    echo "÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷"
+    echo "÷ 1. mytering    2. mycurl. ÷"
+    echo "÷ 3. fish        4. download÷"
+    echo "÷ 5. Clear       6. cheate. ÷"
+    echo "÷ 7. update      8. fish.   ÷"
+    echo "÷ 9. Exit.                  ÷"
+    echo "÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷"
     read -p "Enter your choice (1-9): " choice
 
     case $choice in
