@@ -14,6 +14,10 @@ install_required_packages() {
         if ! is_package_installed "$package"; then
             echo "Installing $package..."
             pkg install -y "$package"
+            if [ $? -ne 0 ]; then
+                echo "Failed to install $package. Exiting."
+                exit 1
+            fi
         fi
     }
 }
@@ -22,6 +26,10 @@ install_required_packages() {
 setup_github_cli() {
     echo "Setting up GitHub CLI..."
     gh auth login -h github.com -p https -w
+    if [ $? -ne 0 ]; then
+        echo "GitHub CLI setup failed. Exiting."
+        exit 1
+    fi
 }
 
 # Function to configure Git
