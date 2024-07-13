@@ -55,5 +55,87 @@ main() {
     echo "A configuration file for future GUI integration has been created."
 }
 
-# Run the main function
-main
+
+clone_repository() {
+    echo "Cloning a repository..."
+    read -p "Enter the GitHub repository URL: " repo_url
+    read -p "Enter the local directory name (press Enter for default): " local_dir
+
+    if [ -z "$local_dir" ]; then
+        git clone "$repo_url"
+    else
+        git clone "$repo_url" "$local_dir"
+    fi
+
+    if [ $? -eq 0 ]; then
+        echo "Repository cloned successfully!"
+    else
+        echo "Failed to clone repository. Please check the URL and your permissions."
+    fi
+}
+
+# Function to push changes to a repository
+push_changes() {
+    echo "Pushing changes to a repository..."
+    read -p "Enter the path to your local repository: " repo_path
+
+    if [ ! -d "$repo_path" ]; then
+        echo "The specified directory does not exist."
+        return 1
+    fi
+
+    cd "$repo_path"
+
+    if [ ! -d .git ]; then
+        echo "The specified directory is not a Git repository."
+        return 1
+    fi
+
+    git status
+
+    read -p "Do you want to stage all changes? (y/n): " stage_all
+    if [ "$stage_all" = "y" ]; then
+        git add .
+    else
+        echo "Please use 'git add' to stage your changes manually."
+        return 0
+    fi
+
+    read -p "Enter a commit message: " commit_message
+    git commit -m "$commit_message"
+
+    current_branch=$(git rev-parse --abbrev-ref HEAD)
+    read -p "Enter the remote branch to push to (default: $current_branch): " remote_branch
+    remote_branch=${remote_branch:-$current_branch}
+
+    git push origin "$remote_branch"
+
+    if [ $? -eq 0 ]; then
+        echo "Changes pushed successfully!"
+    else
+        echo "Failed to push changes. Please check your network and permissions."
+    fi
+}
+
+# Main menu function
+show_menu() {
+    echo "GitHub Operations Menu:"
+    echo "1. Set up GitHub"
+    echo "2. Clone a repository"
+    echo "3. Push changes to a repository"
+    echo "4. Exit"
+    read -p "Enter your choice (1-4): " choice
+
+    case $choice in
+        1) main ;;
+        2) clone_repository ;;
+        3) push_changes ;;
+        4) exit 0 ;;
+        *) echo "Invalid choice. Please try again." ;;
+    esac
+}
+
+# Main execution
+while true; do
+    show_menu
+done
