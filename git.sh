@@ -55,42 +55,43 @@ main() {
     echo "A configuration file for future GUI integration has been created."
 }
 
+# Function to check and create a directory
 check_and_create_path() {
-    local path="storage/downloads/Github"
-    if [ ! -d "$path" ]; then
-        echo "Creating directory: $path"
-        mkdir -p "$path"
-        if [ $? -eq 0 ]; then
-            echo "Directory created successfully."
-        else
-            echo "Failed to create directory. Please check your permissions."
-            exit 1
-        fi
+  local path="$1"  # Accept path as argument
+  if [ ! -d "$path" ]; then
+    echo "Creating directory: $path"
+    mkdir -p "$path"
+    if [ $? -eq 0 ]; then
+      echo "Directory created successfully."
     else
-        echo "Directory already exists: $path"
+      echo "Failed to create directory. Please check your permissions."
+      exit 1
     fi
+  else
+    echo "Directory already exists: $path"
+  fi
 }
 
+# Function to clone a repository
 clone_repository() {
-    check_and_create_path
+  echo "Cloning a repository..."
+  read -p "Enter GitHub repo: " repo_url
+  read -p "Enter the local directory name (press Enter for default): " local_dir
 
-    echo "Cloning a repository..."
-    read -p "Enter GitHub repo: " repo_url
-    read -p "Enter the local directory name (press Enter for default): " local_dir
+  # Construct the full local path using the function
+  check_and_create_path "storage/downloads/Github/$local_dir"  # Call with full path
 
-    local base_path="storage/downloads/Github"
+  if [ -z "$local_dir" ]; then
+    local_dir="$repo_url"
+  fi
 
-    if [ -z "$local_dir" ]; then
-        git clone "https://www.github.com/sunresh/$repo_url" "$base_path/$repo_url"
-    else
-        git clone "https://www.github.com/sunresh/$repo_url" "$base_path/$local_dir"
-    fi
+  git clone "https://www.github.com/sunresh/$repo_url" "storage/downloads/Github/$local_dir"
 
-    if [ $? -eq 0 ]; then
-        echo "Repository cloned successfully!"
-    else
-        echo "Failed to clone repository. Please check the URL and your permissions."
-    fi
+  if [ $? -eq 0 ]; then
+    echo "Repository cloned successfully!"
+  else
+    echo "Failed to clone repository. Please check the URL and your permissions."
+  fi
 }
 
 # Function to push changes to a repository
