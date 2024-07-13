@@ -216,7 +216,7 @@ show_menu() {
     echo "Sunresh Operations Menu:"
     echo "  ÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷"
     echo "  ÷ 1. mytering    2. mycurl. ÷"
-    echo "  ÷ 3. fish        4. download÷"
+    echo "  ÷ 3. Git file    4. download÷"
     echo "  ÷ 5. Clear       6. cheate. ÷"
     echo "  ÷ 7. update      8. fish.   ÷"
     echo "  ÷ 9. Exit.                  ÷"
@@ -226,7 +226,7 @@ show_menu() {
     case $choice in
         1) Mytering ;;
         2) myCurl ;;
-        3) myFish ;;
+        3) download_g ;;
         4) dowload_h_file ;;
         5) clear ;;
         6) helper_cheat ;;
