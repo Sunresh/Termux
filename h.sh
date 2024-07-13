@@ -211,14 +211,14 @@ apt update && apt upgrade -y
 # Main menu function
 show_menu() {
     echo "Sunresh Operations Menu:"
-    echo "1. Set up GitHub"
-    echo "2. Clone a repository"
-    echo "3. Push changes to a repository"
-    echo "4. Exit"
-    echo "5. Clone a repository"
-    echo "6. Push changes to a repository"
-    echo "7. Exit"
-    echo "8. Clone a repository"
+    echo "1. mytering"
+    echo "2. mycurl"
+    echo "3. fish"
+    echo "4. download"
+    echo "5. Clear"
+    echo "6. cheate"
+    echo "7. update"
+    echo "8. fish"
     echo "9. Exit"
   
     read -p "Enter your choice (1-9): " choice
@@ -237,69 +237,7 @@ show_menu() {
         *) echo "Invalid choice. Please try again." ;;
     esac
 }
-
-choose_option() {
-    local options=("GitHub" "URL curl" "Myter" "Download File" "Fish" "Clear Screen" "Update System" "Show Cheat Codes" "Exit")
-    PS3="Enter your choice: "
-
-    while true; do
-        select opt in "${options[@]}"; do
-            case $opt in
-                "Myter")
-                    Mytering
-                    break
-                    ;;
-
-                "URL curl")
-                    myCurl
-                    break
-                    ;;
-
-                "Fish")
-                    myFish
-                    break
-                    ;;
-
-                "Download File")
-                    curl -k -o ~/h.sh https://raw.githubusercontent.com/sunresh/termux/main/h.sh
-                    chmod +x ~/h.sh
-                    echo "File downloaded and set as executable."
-                    break
-                    ;;
-
-                "Clear Screen")
-                    clear
-                    break
-                    ;;
-
-                "Update System")
-                    apt update && apt upgrade -y
-                    echo "System updated."
-                    break
-                    ;;
-
-                "Show Cheat Codes")
-                    helper_cheat
-                    break
-                    ;;
-"GitHub")
-download_g
-break
-;;
-
-                "Exit")
-                    echo "Exiting..."
-                    return
-                    ;;
-
-                *)
-                    echo "Invalid option. Please choose a valid number."
-                    ;;
-            esac
-        done
-    done
-}
-
-# Clear the screen and display the menu
-clear
-choose_option
+# Main execution
+while true; do
+    show_menu
+done
