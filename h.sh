@@ -8,7 +8,10 @@ myFish() {
         # Command to install Fish (assuming a Debian-based system like Termux)
         pkg install fish
     fi
+    clear
     fish
+    clear 
+
 }
 # Function to print a section header
 print_section_header() {
