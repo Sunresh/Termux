@@ -7,21 +7,6 @@ is_package_installed() {
     dpkg -s "$1" >/dev/null 2>&1
 }
 
-# Function to install required packages
-install_required_packages() {
-    local packages=("git" "openssh" "gh")
-    for package in "${packages[@]}"; do
-        if ! is_package_installed "$package"; then
-            echo "Installing $package..."
-            pkg install -y "$package"
-            if [ $? -ne 0 ]; then
-                echo "Failed to install $package. Exiting."
-                exit 1
-            fi
-        fi
-    }
-}
-
 # Function to set up GitHub CLI
 setup_github_cli() {
     echo "Setting up GitHub CLI..."
@@ -59,7 +44,6 @@ prepare_for_gui() {
 
 # Main execution
 main() {
-    install_required_packages
     configure_git
     setup_github_cli
     setup_credential_helper
