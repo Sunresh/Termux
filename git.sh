@@ -96,8 +96,9 @@ clone_repository() {
 # Function to push changes to a repository
 push_changes() {
     echo "Pushing changes to a repository..."
-    read -p "Enter the path to your local repository: " repo_path
-
+    read -p "Enter the path to your local repository: " cinput_path
+    
+    local repo_path = "storage/downloads/Github/$cinput_path"
     if [ ! -d "$repo_path" ]; then
         echo "The specified directory does not exist."
         return 1
