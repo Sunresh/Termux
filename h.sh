@@ -203,28 +203,46 @@ Mytering(){
 # Function to present the user with a menu of options
 
 dowload_h_file(){
-curl -k -o ~/h.sh https://raw.githubusercontent.com/sunresh/termux/main/h.sh
-                    chmod +x ~/h.sh
-                    echo "File downloaded and set as executable."
+    curl -k -o ~/h.sh https://raw.githubusercontent.com/sunresh/termux/main/h.sh
+    chmod +x ~/h.sh
+    echo "File downloaded and set as executable."
 }
 update_termux(){
-apt update && apt upgrade -y
-                    echo "System updated."
+    apt update && apt upgrade -y
+    echo "System updated."
 }
+
+
+move_folder(){
+    echo "Moving folder..."
+    read -p "Enter folder name: " folder
+    read -p "Enter destination: " dest
+    mv $folder $dest
+    echo "Folder moved."
+}
+
+move_folder_sd(){
+    echo "Moving folder from /sdcard to /sdcard"
+    read -p "Enter folder name: " folder
+    read -p "Enter destination: " dest
+    mv /sdcard/$folder /sdcard/$dest
+    echo "Folder moved."
+}
+
 # Main menu function
 show_menu() {
     echo "Sunresh Operations Menu:"
     echo "  ÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷"
-    echo "  ÷ 1. mytering    2. mycurl. ÷"
+    echo "  ÷ 1. Exit        2. mycurl. ÷"
     echo "  ÷ 3. Git file    4. download÷"
     echo "  ÷ 5. Clear       6. cheate. ÷"
     echo "  ÷ 7. update      8. fish.   ÷"
-    echo "  ÷ 9. Exit.                  ÷"
+    echo "  ÷ 9. mytering    10. Move f ÷"
     echo "  ÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷"
     read -p "Enter your choice (1-9): " choice
 
     case $choice in
-        1) Mytering ;;
+        1) exit 0;;
         2) myCurl ;;
         3) download_g ;;
         4) dowload_h_file ;;
@@ -232,8 +250,8 @@ show_menu() {
         6) helper_cheat ;;
         7) update_termux ;;
         8) myFish ;;
-
-        9) exit 0 ;;
+        9) Mytering ;;
+        10) move_folder_sd ;;
         *) echo "Invalid choice. Please try again." ;;
     esac
 }
