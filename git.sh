@@ -55,16 +55,35 @@ main() {
     echo "A configuration file for future GUI integration has been created."
 }
 
+check_and_create_path() {
+    local path="storage/downloads/Github"
+    if [ ! -d "$path" ]; then
+        echo "Creating directory: $path"
+        mkdir -p "$path"
+        if [ $? -eq 0 ]; then
+            echo "Directory created successfully."
+        else
+            echo "Failed to create directory. Please check your permissions."
+            exit 1
+        fi
+    else
+        echo "Directory already exists: $path"
+    fi
+}
 
 clone_repository() {
+    check_and_create_path
+
     echo "Cloning a repository..."
     read -p "Enter GitHub repo: " repo_url
     read -p "Enter the local directory name (press Enter for default): " local_dir
 
+    local base_path="storage/downloads/Github"
+
     if [ -z "$local_dir" ]; then
-        git clone "https://www.github.com/sunresh/$repo_url"
+        git clone "https://www.github.com/sunresh/$repo_url" "$base_path/$repo_url"
     else
-        git clone "https://www.github.com/sunresh/$repo_url" "storage/downloads/$local_dir"
+        git clone "https://www.github.com/sunresh/$repo_url" "$base_path/$local_dir"
     fi
 
     if [ $? -eq 0 ]; then
