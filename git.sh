@@ -64,7 +64,7 @@ clone_repository() {
     if [ -z "$local_dir" ]; then
         git clone "https://www.github.com/sunresh/$repo_url"
     else
-        git clone "https://www.github.com/sunresh/$repo_url" "$local_dir"
+        git clone "https://www.github.com/sunresh/$repo_url" "storage/downloads/$local_dir"
     fi
 
     if [ $? -eq 0 ]; then
