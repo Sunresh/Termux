@@ -1,7 +1,6 @@
 # Termux
-Cheat
-simple method please
-
+How to use:
+simple method
 Here's a much simpler method to create a custom Termux command. Here's the simplest way to do it:
 
 1. Open your Termux configuration file:
