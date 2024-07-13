@@ -2,7 +2,7 @@
 
 ## GitHub Setup Script for Termux
 
-# Function to check if a package is installed
+# Function to check if a package is installed local packages=("git" "openssh" "gh")
 is_package_installed() {
     dpkg -s "$1" >/dev/null 2>&1
 }
