@@ -195,7 +195,7 @@ download_g() {
 }
 
 Mytering(){
-    curl -k -o ~/py.py https://raw.githubusercontent.com/sunresh/a/main/spiraaakcopy.py
+    curl -k -o ~/py.py https://raw.githubusercontent.com/sunresh/termux/main/py.py
     chmod +x ~/py.py
     echo "py.py set as executable."
 }
