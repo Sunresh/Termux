@@ -76,17 +76,13 @@ check_and_create_path() {
 clone_repository() {
   echo "Cloning a repository...from sunresh"
   read -p "Enter GitHub repo: " repo_name
-  read -p "Enter the local directory name (press Enter for default): " local_dir
-  local l_repo_path = "storage/downloads/Github/$local_dir"
+
+  local l_repo_path = "storage/downloads/Github/$repo_name"
     
   # Construct the full local path using the function
-  check_and_create_path "$l_repo_path"  # Call with full path
+  check_and_create_path $l_repo_path  # Call with full path
 
-  if [ -z "$local_dir" ]; then
-    l_repo_path="$repo_name"
-  fi
-
-  git clone "https://www.github.com/sunresh/$repo_name" "$l_repo_path"
+  git clone "https://www.github.com/sunresh/$repo_name" $l_repo_path
 
   if [ $? -eq 0 ]; then
     echo "$repo_name is cloned successfully into $l_repo_path!"
@@ -139,13 +135,29 @@ push_changes() {
     fi
 }
 
+sel_f_update() {
+  echo "Updating git.sh..."
+  
+  read -p "GitHub branch (leave empty for 'main'): " branch
+
+  if [[ -z "$branch" ]]; then
+    branch="main"
+  fi
+
+  finalurl="https://raw.githubusercontent.com/sunresh/termux/$branch/git.sh"
+
+  curl -o "git.sh" "$finalurl"
+  echo "Congrats...$finalurl"
+}
+
 # Main menu function
 show_menu() {
     echo "GitHub Operations Menu:"
-    echo "1. Set up GitHub"
+    echo "1. Set up GitHub "
     echo "2. Clone a repository"
     echo "3. Push changes to a repository"
-    echo "4. Exit"
+    echo "4. Exit                         5. Self update"
+
     read -p "Enter your choice (1-4): " choice
 
     case $choice in
@@ -153,6 +165,7 @@ show_menu() {
         2) clone_repository ;;
         3) push_changes ;;
         4) exit 0 ;;
+        5) sel_f_update ;;
         *) echo "Invalid choice. Please try again." ;;
     esac
 }
