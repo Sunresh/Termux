@@ -77,7 +77,7 @@ clone_repository() {
   echo "Cloning a repository...from sunresh"
   read -p "Enter GitHub repo: " repo_name
 
-  local l_repo_path = "storage/downloads/Github/$repo_name"
+  $l_repo_path = "storage/downloads/Github/$repo_name"
     
   # Construct the full local path using the function
   check_and_create_path $l_repo_path  # Call with full path
