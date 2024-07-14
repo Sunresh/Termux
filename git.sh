@@ -79,13 +79,13 @@ clone_repository() {
   read -p "Enter the local directory name (press Enter for default): " local_dir
 
   # Construct the full local path using the function
-  check_and_create_path "storage/downloads/Github/$local_dir"  # Call with full path
+  check_and_create_path "sdcard/Github/$local_dir"  # Call with full path
 
   if [ -z "$local_dir" ]; then
     local_dir="$repo_url"
   fi
 
-  git clone "https://www.github.com/sunresh/$repo_url" "storage/downloads/Github/$local_dir"
+  git clone "https://www.github.com/sunresh/$repo_url" "sdcard/Github/$local_dir"
 
   if [ $? -eq 0 ]; then
     echo "Repository cloned successfully!"
@@ -99,7 +99,7 @@ push_changes() {
     echo "Pushing changes to a repository..."
     read -p "Enter the path to your local repository: " cinput_path
     
-    local repo_path = "storage/downloads/Github/$cinput_path"
+    local repo_path = "sdcard/Github/$cinput_path"
     if [ ! -d "$repo_path" ]; then
         echo "The specified directory does not exist."
         return 1
