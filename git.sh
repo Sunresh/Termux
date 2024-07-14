@@ -1,7 +1,5 @@
 #!/data/data/com.termux/files/usr/bin/bash
 
-## GitHub Setup Script for Termux
-
 # Function to check if a package is installed local packages=("git" "openssh" "gh")
 is_package_installed() {
     dpkg -s "$1" >/dev/null 2>&1
@@ -77,10 +75,10 @@ clone_repository() {
   echo "Cloning a repository...from sunresh"
   read -p "Enter GitHub repo: " repo_name
 
-  $l_repo_path = "storage/downloads/Github/$repo_name"
+  local $l_repo_path = "storage/downloads/Github/$repo_name"
     
   # Construct the full local path using the function
-  check_and_create_path $l_repo_path  # Call with full path
+  check_and_create_path "$l_repo_path"  # Call with full path
 
   git clone "https://www.github.com/sunresh/$repo_name" $l_repo_path
 
@@ -153,10 +151,9 @@ sel_f_update() {
 # Main menu function
 show_menu() {
     echo "GitHub Operations Menu:"
-    echo "1. Set up GitHub "
-    echo "2. Clone a repository"
-    echo "3. Push changes to a repository"
-    echo "4. Exit                         5. Self update"
+    echo " + 1. Set up GitHub                2. Clone a repository +"
+    echo " + 3. Push changes to a repository                       +"
+    echo " + 4. Exit                         5. Self update        +"
 
     read -p "Enter your choice (1-4): " choice
 
