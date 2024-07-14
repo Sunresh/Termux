@@ -76,12 +76,11 @@ clone_repository() {
   read -p "Enter GitHub repo: " repo_name
   # Construct the full local path using the function
   check_and_create_path "storage/downloads/Github/$repo_name"
-  local $l_repo_path = "storage/downloads/Github/$repo_name"
 
-  git clone "https://www.github.com/sunresh/$repo_name" $l_repo_path
+  git clone "https://www.github.com/sunresh/$repo_name" "storage/downloads/Github/$repo_name"
 
   if [ $? -eq 0 ]; then
-    echo "$repo_name is cloned successfully into $l_repo_path!"
+    echo "$repo_name is cloned successfully into storage/downloads/Github/$repo_name"
   else
     echo "Failed to clone repository. Please check the URL and your permissions."
   fi
@@ -91,14 +90,13 @@ clone_repository() {
 push_changes() {
     echo "Pushing changes to a repository..."
     read -p "Enter the path to your local repository: " local_dir
-    local l_repo_path = "storage/downloads/Github/$local_dir"
-    local repo_path = "$l_repo_path"
-    if [ ! -d "$repo_path" ]; then
+
+    if [ ! -d "storage/downloads/Github/$local_dir" ]; then
         echo "The specified directory does not exist."
         return 1
     fi
 
-    cd "$repo_path"
+    cd "storage/downloads/Github/$local_dir"
 
     if [ ! -d .git ]; then
         echo "The specified directory is not a Git repository."
