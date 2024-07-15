@@ -1,3 +1,5 @@
+#!/bin/bash
+
 myCurl() {
   # Prompt the user for the URL
   read -p "Enter your URL: " url

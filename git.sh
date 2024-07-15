@@ -1,4 +1,4 @@
-#!/data/data/com.termux/files/usr/bin/bash
+#!/bin/bash
 
 # Function to check if a package is installed local packages=("git" "openssh" "gh")
 is_package_installed() {
