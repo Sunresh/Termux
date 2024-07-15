@@ -99,8 +99,6 @@ gotopath() {
     fi
 }
 
-# Example usage:
-gotopath
 # Main menu function
 show_menu() {
     echo "Sunresh Operations Menu:"
