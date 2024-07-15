@@ -1,0 +1,5 @@
+alias h= './h.sh'
+alias e= 'exit'
+alias gg= './git.sh'
+alias add= './command.sh'
+

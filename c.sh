@@ -2,9 +2,9 @@
 
 # Function to display section headers
 print_section_header() {
-    echo ""
+    echo "                      "
     echo "______________________"
-    echo ""
+    echo "                      "
 }
 
 # Function to check internet connection
