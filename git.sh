@@ -146,24 +146,26 @@ sel_f_update() {
 
 # Main menu function
 show_menu() {
-    echo "GitHub Operations Menu:"
-    echo " + 1. Set up GitHub                2. Clone a repository +"
-    echo " + 3. Push changes to a repository                       +"
-    echo " + 4. Exit                         5. Self update        +"
+  exit_flag=false  # Initialize exit flag
+  echo "GitHub Operations Menu:"
+  echo " + 1. Set up  2. Clone       +"
+  echo " + 3. Push                   +"
+  echo " + 4. Exit    5. Self update +"
 
-    read -p "Enter your choice (1-4): " choice
+  read -p "Enter your choice (1-4): " choice
 
-    case $choice in
-        1) main ;;
-        2) clone_repository ;;
-        3) push_changes ;;
-        4) exit 0 ;;
-        5) sel_f_update ;;
-        *) echo "Invalid choice. Please try again." ;;
-    esac
+  case $choice in
+      1) main ;;
+      2) clone_repository ;;
+      3) push_changes ;;
+      4) exit_flag=true ;;  # Set flag on exit selection
+      5) sel_f_update ;;
+      *) echo "Invalid choice. Please try again." ;;
+  esac
+    # Call show_menu again only if the exit flag is not set
+  if [[ ! $exit_flag ]]; then
+    show_menu
+  fi
 }
 
-# Main execution
-while true; do
-    show_menu
-done
+show_menu
