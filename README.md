@@ -1,11 +1,9 @@
 # Termux
 How to use:
+```markdown
+   [![View Code](https://img.shields.io/badge/View-Code-blue)](https://github.com/yourusername/yourrepository/blob/main/sample_code.py)
 
-Here's some example code. You can copy it by clicking the copy icon in the top-right corner of the code block:
-
-```python
-def hello_world():
-    print("Hello, World!")
+   
 very first copy the code 
    ```
    curl -k -o ~/h.sh https://raw.githubusercontent.com/sunresh/termux/main/h.sh
