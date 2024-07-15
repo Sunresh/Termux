@@ -1,5 +1,8 @@
 #!/bin/bash
-
+list_files() {
+    echo "Listing files in current directory:"
+    ls -l
+}
 myCurl() {
   # Prompt the user for the URL
   read -p "Enter your URL: " url
@@ -96,7 +99,7 @@ show_menu() {
         3) download_g ;;
         4) dowload_h_file ;;
         5) make_executable ;;
-        6) helper_cheat ;;
+        6) list_files ;;
         7) update_termux ;;
         8) myFish ;;
         9) Mytering ;;
