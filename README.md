@@ -8,12 +8,10 @@ very first copy the code
    ```
 simple method
 Here's a much simpler method to create a custom Termux command. Here's the simplest way to do it:
-#!/bin/bash
+2. Add the following line at the end of the file:
 
-echo "alias sunresh='./h.sh'"
-clipboardify  # This is a hypothetical command to copy to clipboard
-
-echo "The alias line has been copied to your clipboard."
+   ```bash
+   alias sunresh='./h.sh'
 
 1. Open your Termux configuration file:
 
