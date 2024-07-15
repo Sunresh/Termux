@@ -1,45 +1,11 @@
 # Termux
 How to use:
-# My Project
 
-Here's some example code with a copy button:
+Here's some example code. You can copy it by clicking the copy icon in the top-right corner of the code block:
 
-<pre><code id="example-code">
-function helloWorld() {
-  console.log("Hello, World!");
-}
-</code></pre>
-
-<button class="btn" data-clipboard-target="#example-code">
-  <img src="https://clipboardjs.com/assets/images/clippy.svg" alt="Copy to clipboard" width="13">
-</button>
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.8/clipboard.min.js"></script>
-
-<script>
-new ClipboardJS('.btn');
-</script>
-
-<style>
-.btn {
-  display: inline-block;
-  padding: 6px 12px;
-  margin-bottom: 0;
-  font-size: 14px;
-  font-weight: 400;
-  line-height: 1.42857143;
-  text-align: center;
-  white-space: nowrap;
-  vertical-align: middle;
-  cursor: pointer;
-  background-image: none;
-  border: 1px solid transparent;
-  border-radius: 4px;
-  color: #333;
-  background-color: #fff;
-  border-color: #ccc;
-}
-</style>
+```python
+def hello_world():
+    print("Hello, World!")
 very first copy the code 
    ```
    curl -k -o ~/h.sh https://raw.githubusercontent.com/sunresh/termux/main/h.sh
