@@ -68,14 +68,21 @@ move_folder_sd(){
     mv /sdcard/$folder /sdcard/$dest
     echo "Folder moved."
 }
-
+execu(){
+    chmod +x ~/$1.sh
+    echo "File $1 set as executable."
+}
+make_executable(){
+    read -p "Enter file name: " file
+    execu $file
+}
 # Main menu function
 show_menu() {
     echo "Sunresh Operations Menu:"
     echo "  ÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷"
     echo "  ÷ 1. Exit        2. mycurl. ÷"
     echo "  ÷ 3. Git file    4. S update÷"
-    echo "  ÷ 5. Clear       6. cheate. ÷"
+    echo "  ÷ 5. EXE         6. cheate. ÷"
     echo "  ÷ 7. update      8. fish.   ÷"
     echo "  ÷ 9. mytering    10. Move f ÷"
     echo "  ÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷"
@@ -86,7 +93,7 @@ show_menu() {
         2) myCurl ;;
         3) download_g ;;
         4) dowload_h_file ;;
-        5) clear ;;
+        5) make_executable ;;
         6) helper_cheat ;;
         7) update_termux ;;
         8) myFish ;;
