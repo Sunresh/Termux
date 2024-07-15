@@ -81,6 +81,26 @@ make_executable(){
     read -p "Enter file name: " file
     execu $file
 }
+cdpath(){
+    cd $1
+    echo "Changed directory to $1"
+}
+# Function to change directory based on user input
+gotopath() {
+    read -p "Enter path: " path
+    if [ -d "$path" ]; then
+        if [ "$path" == "Github" ]; then
+            cdpath "storage/downloads/Github"
+        else
+            echo "Directory '$path' exists but is not 'Github'."
+        fi
+    else
+        echo "Directory '$path' does not exist."
+    fi
+}
+
+# Example usage:
+gotopath
 # Main menu function
 show_menu() {
     echo "Sunresh Operations Menu:"
@@ -88,7 +108,7 @@ show_menu() {
     echo "  ÷ 1. Exit        2. mycurl. ÷"
     echo "  ÷ 3. Git file    4. S update÷"
     echo "  ÷ 5. EXE         6. cheate. ÷"
-    echo "  ÷ 7. update      8. fish.   ÷"
+    echo "  ÷ 7. update      8. gotopath÷"
     echo "  ÷ 9. mytering    10. Move f ÷"
     echo "  ÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷"
     read -p "Enter your choice (1-9): " choice
@@ -101,7 +121,7 @@ show_menu() {
         5) make_executable ;;
         6) list_files ;;
         7) update_termux ;;
-        8) myFish ;;
+        8) gotopath ;;
         9) Mytering ;;
         10) move_folder_sd ;;
         *) echo "Invalid choice. Please try again." ;;
