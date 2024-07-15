@@ -106,7 +106,7 @@ gotopath() {
 
 # Main menu function
 show_menu() {
-    echo "Sunresh Operations Menu:"
+    echo "  Sunresh Operations Menu:     "
     echo "  ÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷"
     echo "  ÷ 1. Exit        2. mycurl. ÷"
     echo "  ÷ 3. Git file    4. S update÷"
@@ -117,7 +117,7 @@ show_menu() {
     read -p "Enter your choice (1-9): " choice
 
     case $choice in
-        1) exit 0;;
+        1) exit 0 ;;
         2) myCurl ;;
         3) download_g ;;
         4) dowload_h_file ;;
@@ -130,7 +130,7 @@ show_menu() {
         *) echo "Invalid choice. Please try again." ;;
     esac
 }
-# Main execution
+
 while true; do
     show_menu
 done
