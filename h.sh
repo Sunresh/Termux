@@ -81,15 +81,18 @@ make_executable(){
     read -p "Enter file name: " file
     execu $file
 }
-cdpath(){
-    if [ -d "$1" ]; then
-        cd $1
-        echo "Changed directory to $1"
+# Function to change directory based on input path
+cdpath() {
+    local target_dir="$1"
+    if [ -d "$target_dir" ]; then
+        cd "$target_dir" || { echo "Error changing directory to '$target_dir'"; return 1; }
+        echo "Changed directory to $target_dir"
     else
-        echo "Directory '$1' does not exist."
+        echo "Directory '$target_dir' does not exist."
     fi
 }
-# Function to change directory based on user input
+
+# Function to handle directory navigation based on user input
 gotopath() {
     read -p "Enter path: " path
     
@@ -98,8 +101,8 @@ gotopath() {
     else
         echo "Directory '$path' exists but is not 'Github'."
     fi
-    
 }
+
 
 # Main menu function
 show_menu() {
