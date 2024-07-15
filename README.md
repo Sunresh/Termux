@@ -7,12 +7,17 @@ very first copy the code
    chmod +x ~/h.sh
    ```
 simple method
-Here's a much simpler method to create a custom Termux command. Here's the simplest way to do it:
-2. Add the following line at the end of the file:
+Add the following line at the end of the file:
 
    ```bash
    alias sunresh='./h.sh'
-
+   <details>
+   <summary>Click to copy</summary>
+bash
+Copy code
+alias sunresh='./h.sh'
+   </details>
+```
 1. Open your Termux configuration file:
 
    ```
