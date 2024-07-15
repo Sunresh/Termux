@@ -40,16 +40,12 @@ download_g() {
 }
 
 Mytering(){
-    curl -k -o ~/py.py https://raw.githubusercontent.com/sunresh/termux/main/py.py
-    chmod +x ~/py.py
+    curl -k -o ~/py.py https://raw.githubusercontent.com/sunresh/termux/main/py.py && chmod +x ~/py.py
     echo "py.py set as executable."
 }
 
-# Function to present the user with a menu of options
-
 dowload_h_file(){
-    curl -k -o ~/h.sh https://raw.githubusercontent.com/sunresh/termux/main/h.sh
-    chmod +x ~/h.sh
+    curl -k -o ~/h.sh https://raw.githubusercontent.com/sunresh/termux/main/h.sh && chmod +x ~/h.sh
     echo "File downloaded and set as executable."
 }
 update_termux(){
