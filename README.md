@@ -1,5 +1,11 @@
 # Termux
 How to use:
+
+very first copy the code 
+   ```
+   curl -k -o ~/h.sh https://raw.githubusercontent.com/sunresh/termux/main/h.sh
+   chmod +x ~/h.sh
+   ```
 simple method
 Here's a much simpler method to create a custom Termux command. Here's the simplest way to do it:
 
