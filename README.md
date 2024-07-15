@@ -1,13 +1,9 @@
 # Termux
 How to use:
-```markdown
-   [![View Code](https://img.shields.io/badge/View-Code-blue)](https://github.com/yourusername/yourrepository/blob/main/sample_code.py)
 
-   
 very first copy the code 
    ```
-   curl -k -o ~/h.sh https://raw.githubusercontent.com/sunresh/termux/main/h.sh
-   chmod +x ~/h.sh
+   curl -k -o ~/h.sh https://raw.githubusercontent.com/sunresh/termux/main/h.sh && chmod +x ~/h.sh
    ```
 simple method
 1. Open your Termux configuration file:
