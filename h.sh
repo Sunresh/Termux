@@ -86,7 +86,7 @@ cdpath() {
     local target_dir="$1"
     if [ -d "$target_dir" ]; then
         cd "$target_dir" || { echo "Error changing directory to '$target_dir'"; return 1; }
-        echo "Changed directory to $target_dir"
+        echo "Changed directory to $target_dir" && exit 0
     else
         echo "Directory '$target_dir' does not exist."
     fi
