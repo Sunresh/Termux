@@ -26,5 +26,5 @@ elif [[ "$OS" == "MINGW64_NT-10.0" ]]; then
   # You might need to adjust based on your Windows version
   termux_gitbash
 else
-  echo "Unsupported platform. Help information not available. $OS"
+  echo "Unsupported platform. Help information not available$OS"
 fi
