@@ -175,7 +175,7 @@ fetch_changes() {
     if [ ! -d .git ]; then
         echo "The specified directory is not a Git repository."
         return 1
-    }
+    fi
 
     git fetch --all
 
