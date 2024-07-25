@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Function to check if a package is installed local packages=("git" "openssh" "gh")
+# Function to check if a package is installed
 is_package_installed() {
     dpkg -s "$1" >/dev/null 2>&1
 }
@@ -55,35 +55,35 @@ main() {
 
 # Function to check and create a directory
 check_and_create_path() {
-  local path="$1"  # Accept path as argument
-  if [ ! -d "$path" ]; then
-    echo "Creating directory: $path"
-    mkdir -p "$path"
-    if [ $? -eq 0 ]; then
-      echo "Directory created successfully."
+    local path="$1"  # Accept path as argument
+    if [ ! -d "$path" ]; then
+        echo "Creating directory: $path"
+        mkdir -p "$path"
+        if [ $? -eq 0 ]; then
+            echo "Directory created successfully."
+        else
+            echo "Failed to create directory. Please check your permissions."
+            exit 1
+        fi
     else
-      echo "Failed to create directory. Please check your permissions."
-      exit 1
+        echo "Directory already exists: $path"
     fi
-  else
-    echo "Directory already exists: $path"
-  fi
 }
 
 # Function to clone a repository
 clone_repository() {
-  echo "Cloning a repository...from sunresh"
-  read -p "Enter GitHub repo: " repo_name
-  # Construct the full local path using the function
-  check_and_create_path "storage/downloads/Github/$repo_name"
+    echo "Cloning a repository from sunresh..."
+    read -p "Enter GitHub repo: " repo_name
+    # Construct the full local path using the function
+    check_and_create_path "storage/downloads/Github/$repo_name"
 
-  git clone "https://www.github.com/sunresh/$repo_name" "storage/downloads/Github/$repo_name"
+    git clone "https://www.github.com/sunresh/$repo_name" "storage/downloads/Github/$repo_name"
 
-  if [ $? -eq 0 ]; then
-    echo "$repo_name is cloned successfully into storage/downloads/Github/$repo_name"
-  else
-    echo "Failed to clone repository. Please check the URL and your permissions."
-  fi
+    if [ $? -eq 0 ]; then
+        echo "$repo_name is cloned successfully into storage/downloads/Github/$repo_name"
+    else
+        echo "Failed to clone repository. Please check the URL and your permissions."
+    fi
 }
 
 # Function to push changes to a repository
@@ -129,8 +129,7 @@ push_changes() {
     fi
 }
 
-
-
+# Function to pull changes from a repository
 pull_changes() {
     echo "Pulling changes from a repository..."
     read -p "Enter the path to your local repository: " local_dir
@@ -188,57 +187,50 @@ fetch_changes() {
     fi
 }
 
-
-
-
+# Function to self-update the script
 sel_f_update() {
-  echo "Updating git.sh..."
+    echo "Updating git.sh..."
   
-  read -p "GitHub branch (leave empty for 'main'): " branch
+    read -p "GitHub branch (leave empty for 'main'): " branch
 
-  if [[ -z "$branch" ]]; then
-    branch="main"
-  fi
+    if [[ -z "$branch" ]]; then
+        branch="main"
+    fi
 
-  finalurl="https://raw.githubusercontent.com/sunresh/termux/$branch/git.sh"
+    finalurl="https://raw.githubusercontent.com/sunresh/termux/$branch/git.sh"
 
-  curl -o "git.sh" "$finalurl"
-  echo "Congrats...$finalurl"
+    curl -o "git.sh" "$finalurl"
+    echo "Congrats...$finalurl"
 }
 
-
-
-# Main menu function (updated)
+# Main menu function
 show_menu() {
-  exit_flag=false  # Initialize exit flag
-  echo "GitHub Operations Menu:"
-  echo " + 1. Set up  2. Clone       +"
-  echo " + 3. Push    4. Pull        +"
-  echo " + 5. Fetch   6. Self update +"
-  echo " + 7. Exit                   +"
+    exit_flag=false  # Initialize exit flag
+    while true; do
+        echo "GitHub Operations Menu:"
+        echo " + 1. Set up  2. Clone       +"
+        echo " + 3. Push    4. Pull        +"
+        echo " + 5. Fetch   6. Self update +"
+        echo " + 7. Exit                   +"
 
-  read -p "Enter your choice (1-7): " choice
+        read -p "Enter your choice (1-7): " choice
 
-  case $choice in
-      1) main ;;
-      2) clone_repository ;;
-      3) push_changes ;;
-      4) pull_changes ;;
-      5) fetch_changes ;;
-      6) sel_f_update ;;
-      7) exit_flag=true ;;
-      *) echo "Invalid choice. Please try again." ;;
-  esac
-    # Call show_menu again only if the exit flag is not set
-  if [[ ! $exit_flag ]]; then
-    show_menu
-  fi
+        case $choice in
+            1) main ;;
+            2) clone_repository ;;
+            3) push_changes ;;
+            4) pull_changes ;;
+            5) fetch_changes ;;
+            6) sel_f_update ;;
+            7) exit_flag=true ;;
+            *) echo "Invalid choice. Please try again." ;;
+        esac
+
+        # Break the loop if exit flag is set
+        if [ "$exit_flag" = true ]; then
+            break
+        fi
+    done
 }
 
 show_menu
-
-
-
-
-
-
