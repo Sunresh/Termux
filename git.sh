@@ -145,7 +145,7 @@ pull_changes() {
     if [ ! -d .git ]; then
         echo "The specified directory is not a Git repository."
         return 1
-    }
+    fi
 
     current_branch=$(git rev-parse --abbrev-ref HEAD)
     read -p "Enter the remote branch to pull from (default: $current_branch): " remote_branch
