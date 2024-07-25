@@ -129,6 +129,68 @@ push_changes() {
     fi
 }
 
+
+
+pull_changes() {
+    echo "Pulling changes from a repository..."
+    read -p "Enter the path to your local repository: " local_dir
+
+    if [ ! -d "storage/downloads/Github/$local_dir" ]; then
+        echo "The specified directory does not exist."
+        return 1
+    fi
+
+    cd "storage/downloads/Github/$local_dir"
+
+    if [ ! -d .git ]; then
+        echo "The specified directory is not a Git repository."
+        return 1
+    }
+
+    current_branch=$(git rev-parse --abbrev-ref HEAD)
+    read -p "Enter the remote branch to pull from (default: $current_branch): " remote_branch
+    remote_branch=${remote_branch:-$current_branch}
+
+    git pull origin "$remote_branch"
+
+    if [ $? -eq 0 ]; then
+        echo "Changes pulled successfully!"
+    else
+        echo "Failed to pull changes. Please check your network and permissions."
+    fi
+}
+
+# Function to fetch changes from a repository
+fetch_changes() {
+    echo "Fetching changes from a repository..."
+    read -p "Enter the path to your local repository: " local_dir
+
+    if [ ! -d "storage/downloads/Github/$local_dir" ]; then
+        echo "The specified directory does not exist."
+        return 1
+    fi
+
+    cd "storage/downloads/Github/$local_dir"
+
+    if [ ! -d .git ]; then
+        echo "The specified directory is not a Git repository."
+        return 1
+    }
+
+    git fetch --all
+
+    if [ $? -eq 0 ]; then
+        echo "Changes fetched successfully!"
+        echo "Use 'git branch -a' to see all branches, including remote ones."
+        echo "Use 'git merge' or 'git rebase' to integrate the changes."
+    else
+        echo "Failed to fetch changes. Please check your network and permissions."
+    fi
+}
+
+
+
+
 sel_f_update() {
   echo "Updating git.sh..."
   
@@ -144,22 +206,27 @@ sel_f_update() {
   echo "Congrats...$finalurl"
 }
 
-# Main menu function
+
+
+# Main menu function (updated)
 show_menu() {
   exit_flag=false  # Initialize exit flag
   echo "GitHub Operations Menu:"
   echo " + 1. Set up  2. Clone       +"
-  echo " + 3. Push                   +"
-  echo " + 4. Exit    5. Self update +"
+  echo " + 3. Push    4. Pull        +"
+  echo " + 5. Fetch   6. Self update +"
+  echo " + 7. Exit                   +"
 
-  read -p "Enter your choice (1-4): " choice
+  read -p "Enter your choice (1-7): " choice
 
   case $choice in
       1) main ;;
       2) clone_repository ;;
       3) push_changes ;;
-      4) exit_flag=true ;;  # Set flag on exit selection
-      5) sel_f_update ;;
+      4) pull_changes ;;
+      5) fetch_changes ;;
+      6) sel_f_update ;;
+      7) exit_flag=true ;;
       *) echo "Invalid choice. Please try again." ;;
   esac
     # Call show_menu again only if the exit flag is not set
@@ -169,3 +236,9 @@ show_menu() {
 }
 
 show_menu
+
+
+
+
+
+
