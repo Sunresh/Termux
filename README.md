@@ -3,13 +3,21 @@
 for window:
 download git window
 ```
-mkdir -p "$HOME/storage/downloads/githubs"
+mkdir -p "$HOME/storage/downloads/github"
 ```
 open git bash app
 ```
 git clone "https://www.github.com/sunresh/termux" "$HOME/storage/downloads/github/termux"
 ```
 How to use:
+
+```
+source "$HOME/storage/downloads/github/termux/app.sh"
+```
+
+
+
+
 
 very first copy the code 
 
