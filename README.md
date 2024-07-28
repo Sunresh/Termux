@@ -10,7 +10,12 @@ open git bash app
 git clone "https://www.github.com/sunresh/termux" "$HOME/storage/downloads/github/termux"
 ```
 How to use:
+for branch v2 
 
+```
+git checkout v2
+```
+test app:
 ```
 source "$HOME/storage/downloads/github/termux/app.sh"
 ```
