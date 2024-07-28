@@ -1,4 +1,11 @@
 # Termux
+
+for window:
+download git window
+open git bash app
+```
+git clone "https://www.github.com/sunresh/termux" "$HOME/storage/downloads/github/termux"
+```
 How to use:
 
 very first copy the code 
