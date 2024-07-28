@@ -2,6 +2,9 @@
 
 for window:
 download git window
+```
+mkdir -p "$HOME/storage/downloads/githubs"
+```
 open git bash app
 ```
 git clone "https://www.github.com/sunresh/termux" "$HOME/storage/downloads/github/termux"
