@@ -1,4 +1,30 @@
 #!/bin/bash
+# Function to fetch changes from a repository
+fetch_changes() {
+    echo "Fetching changes from a repository..."
+
+    if [ ! -d "$HOME/storage/downloads/github/termux" ]; then
+        echo "The specified directory does not exist."
+        return 1
+    fi
+
+    cd "$HOME/storage/downloads/github/termux"
+
+    if [ ! -d .git ]; then
+        echo "The specified directory is not a Git repository."
+        return 1
+    fi
+
+    git fetch --all
+
+    if [ $? -eq 0 ]; then
+        echo "Changes fetched successfully!"
+        echo "Use 'git branch -a' to see all branches, including remote ones."
+        echo "Use 'git merge' or 'git rebase' to integrate the changes."
+    else
+        echo "Failed to fetch changes. Please check your network and permissions."
+    fi
+}
 
 function list_files() {
     echo "Listing files in the current directory:"
@@ -37,6 +63,11 @@ clone_repository() {
 function time_now() {
     date +"%T"
 }
+function sel_f_update() {
+    echo "Updating..."
+    curl -k -o ~/app.sh https://raw.githubusercontent.com/sunresh/termux/main/app.sh && chmod +x ~/app.sh
+    echo "File downloaded and set as executable."
+}
 # Main menu function (updated)
 show_menu() {
   exit_flag=false  # Initialize exit flag
@@ -56,7 +87,7 @@ show_menu() {
       3) push_changes ;;
       4) pull_changes ;;
       5) fetch_changes ;;
-      6) sel_f_update ;;
+      6) fetch_changes ;;
       7) time_now ;;
       *) echo "Invalid choice. Please try again." ;;
   esac
