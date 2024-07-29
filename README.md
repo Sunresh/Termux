@@ -16,9 +16,9 @@ cd "$HOME/storage/downloads/github/termux"
 ```bash
 git checkout v2
 ```
-test app:
+*Test app:*
 ```bash
-source "$HOME/storage/downloads/github/termux/app.sh"
+source "app.sh"
 ```
 
 
