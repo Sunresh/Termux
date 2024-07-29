@@ -1,7 +1,5 @@
 # Termux
-## Initialization
 [Click here for web](https://www.github.com/sunresh)
-## For window:
 *Create a folder*
 ```bash
 mkdir -p "$HOME/storage/downloads/github"
@@ -10,7 +8,6 @@ mkdir -p "$HOME/storage/downloads/github"
 ```bash
 git clone "https://www.github.com/sunresh/termux" "$HOME/storage/downloads/github/termux"
 ```
-## How to use:
 *Go to the path*
 ```bash
 cd "$HOME/storage/downloads/github/termux"
