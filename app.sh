@@ -68,6 +68,11 @@ function sel_f_update() {
     curl -k -o ~/app.sh https://raw.githubusercontent.com/sunresh/termux/main/app.sh && chmod +x ~/app.sh
     echo "File downloaded and set as executable."
 }
+
+function exit_script() {
+    echo "Exiting script..."
+    exit 0
+}
 # Main menu function (updated)
 show_menu() {
   exit_flag=false  # Initialize exit flag
@@ -82,7 +87,7 @@ show_menu() {
   read -p "Enter your choice (1-7): " choice
 
   case $choice in
-      1) exit_flag=true ;;
+      1) exit_script ;;
       2) clone_repository ;;
       3) push_changes ;;
       4) pull_changes ;;
@@ -91,10 +96,7 @@ show_menu() {
       7) time_now ;;
       *) echo "Invalid choice. Please try again." ;;
   esac
-    # Call show_menu again only if the exit flag is not set
-  if [[ $exit_flag ]]; then
-    show_menu
-  fi
+  show_menu
 }
 
 show_menu
