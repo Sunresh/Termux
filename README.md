@@ -1,19 +1,21 @@
 # Termux
 ## Initialization
 [Click here for web](https://www.github.com/sunresh)
-
 ## For window:
-*download git window*
+*Create a folder*
 ```bash
 mkdir -p "$HOME/storage/downloads/github"
 ```
-''open git bash app''
+*Download termux to above path*
 ```bash
 git clone "https://www.github.com/sunresh/termux" "$HOME/storage/downloads/github/termux"
 ```
 ## How to use:
-for branch v2 
-
+*Go to the path*
+```bash
+cd "$HOME/storage/downloads/github/termux"
+```
+*If you want to choose branch: eg. v2* 
 ```bash
 git checkout v2
 ```
