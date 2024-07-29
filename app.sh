@@ -73,14 +73,19 @@ function exit_script() {
     echo "Exiting script..."
     exit 0
 }
-
-
+function updatae(){
+  find "$HOME/storage/downloads/github/termux" -mindepth 1 -delete
+  git clone "https://www.github.com/sunresh/termux" "$HOME/storage/downloads/github/termux"
+}
+function cdHome(){
+  cd "$HOME/storage/downloads/github/termux"
+}
 while true; do
     echo "###################################"
     echo "#  GitHub  Operations   Menu:     #"
     echo "###################################"
     echo "# 1. Exit            2. Clone     #"
-    echo "# 3. Push             4. Pull     #"
+    echo "# 3. Home             4. Pull     #"
     echo "# 5. Fetch        6. Self update  #"
     echo "# 7. Time                         #"
     echo "###################################"
@@ -89,14 +94,12 @@ while true; do
 
     case $choice in
         1) exit_script ;;
-        2) clone_repository ;;
-        3) push_changes ;;
+        2) sel_f_update ;;
+        3) cdHome ;;
         4) pull_changes ;;
         5) fetch_changes ;;
-        6) self_update ;;
+        6) updatae ;;
         7) time_now ;;
         *) echo "Invalid choice. Please try again." ;;
     esac
 done
-
-
