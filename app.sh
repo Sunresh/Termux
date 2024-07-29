@@ -92,7 +92,7 @@ show_menu() {
       *) echo "Invalid choice. Please try again." ;;
   esac
     # Call show_menu again only if the exit flag is not set
-  if [[ ! $exit_flag ]]; then
+  if [[ $exit_flag ]]; then
     show_menu
   fi
 }
