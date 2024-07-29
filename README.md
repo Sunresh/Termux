@@ -1,5 +1,9 @@
 # Termux
 [Click here for web](https://www.github.com/sunresh)
+*If folder alteady exits*
+```bash
+find "$HOME/storage/downloads/github/termux" -mindepth 1 -delete
+```
 *Create a folder*
 ```bash
 mkdir -p "$HOME/storage/downloads/github"
