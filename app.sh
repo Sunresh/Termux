@@ -96,10 +96,13 @@ show_menu() {
       7) time_now ;;
       *) echo "Invalid choice. Please try again." ;;
   esac
-  show_menu
 }
 
-show_menu
+
+while true; do
+    show_menu
+done
+
 
 
 
