@@ -34,26 +34,30 @@ clone_repository() {
     echo "Failed to clone repository. Please check the URL and your permissions."
   fi
 }
-
+function time_now() {
+    date +"%T"
+}
 # Main menu function (updated)
 show_menu() {
   exit_flag=false  # Initialize exit flag
-  echo "GitHub Operations Menu:"
-  echo " + 1. Set up  2. Clone       +"
-  echo " + 3. Push    4. Pull        +"
-  echo " + 5. Fetch   6. Self update +"
-  echo " + 7. Exit                   +"
+  echo "###################################"
+  echo "#  GitHub  Operations   Menu:     #"
+  echo "# 1. Exit            2. Clone     #"
+  echo "# 3. Push             4. Pull     #"
+  echo "# 5. Fetch        6. Self update  #"
+  echo "# 7. Time                         #"
+  echo "###################################"
 
   read -p "Enter your choice (1-7): " choice
 
   case $choice in
-      1) main ;;
+      1) exit_flag=true ;;
       2) clone_repository ;;
       3) push_changes ;;
       4) pull_changes ;;
       5) fetch_changes ;;
       6) sel_f_update ;;
-      7) exit_flag=true ;;
+      7) time_now ;;
       *) echo "Invalid choice. Please try again." ;;
   esac
     # Call show_menu again only if the exit flag is not set
