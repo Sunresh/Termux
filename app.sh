@@ -74,33 +74,30 @@ function exit_script() {
     exit 0
 }
 
-# Main menu function
-function show_menu() {
-    while true; do
-        echo "###################################"
-        echo "#  GitHub  Operations   Menu:     #"
-        echo "# 1. Exit            2. Clone     #"
-        echo "# 3. Push             4. Pull     #"
-        echo "# 5. Fetch        6. Self update  #"
-        echo "# 7. Time                         #"
-        echo "###################################"
 
-        read -p "Enter your choice (1-7): " choice
+while true; do
+    echo "###################################"
+    echo "#  GitHub  Operations   Menu:     #"
+    echo "# 1. Exit            2. Clone     #"
+    echo "# 3. Push             4. Pull     #"
+    echo "# 5. Fetch        6. Self update  #"
+    echo "# 7. Time                         #"
+    echo "###################################"
 
-        case $choice in
-            1) exit_script ;;
-            2) clone_repository ;;
-            3) push_changes ;;
-            4) pull_changes ;;
-            5) fetch_changes ;;
-            6) self_update ;;
-            7) time_now ;;
-            *) echo "Invalid choice. Please try again." ;;
-        esac
-    done
-}
+    read -p "Enter your choice (1-7): " choice
 
-show_menu
+    case $choice in
+        1) exit_script ;;
+        2) clone_repository ;;
+        3) push_changes ;;
+        4) pull_changes ;;
+        5) fetch_changes ;;
+        6) self_update ;;
+        7) time_now ;;
+        *) echo "Invalid choice. Please try again." ;;
+    esac
+done
+
 
 
 
