@@ -78,6 +78,7 @@ function exit_script() {
 while true; do
     echo "###################################"
     echo "#  GitHub  Operations   Menu:     #"
+    echo "###################################"
     echo "# 1. Exit            2. Clone     #"
     echo "# 3. Push             4. Pull     #"
     echo "# 5. Fetch        6. Self update  #"
@@ -97,11 +98,5 @@ while true; do
         *) echo "Invalid choice. Please try again." ;;
     esac
 done
-
-
-
-
-
-
 
 
