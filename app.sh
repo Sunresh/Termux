@@ -9,7 +9,7 @@ function go_to_home() {
     cd ~
     echo "Moved to home directory."
 }
-# Function to push changes to a repository
+
 function push_changes() {
     echo "Pushing changes to a repository..."
     read -p "Enter local repository: " local_dir
@@ -56,7 +56,7 @@ function push_changes() {
 clone_repository() {
   echo "Cloning a repository...from sunresh"
   read -p "Enter GitHub repo: " repo_name
-  # Construct the full local path using the function
+
   # check_and_create_path "storage/downloads/Github/$repo_name"
 
   git clone "https://www.github.com/sunresh/$repo_name" "$HOME/storage/downloads/Github/$repo_name"
@@ -72,19 +72,22 @@ function exit_script() {
     echo "Exiting script..."
     exit 0
 }
+
 function updatae(){
   find "$HOME/storage/downloads/github/termux" -mindepth 1 -delete
   git clone "https://www.github.com/sunresh/termux" "$HOME/storage/downloads/github/termux"
 }
+
 function cdHome(){
   cd "$HOME/storage/downloads/github/termux"
 }
+
 while true; do
     echo "###################################"
     echo "#  GitHub  Operations   Menu:     #"
     echo "###################################"
     echo "# 1. Exit            2. Clone     #"
-    echo "# 3. Home       4. Push repos     #"
+    echo "# 3. Home          4. Push repos  #"
     echo "# 5. Fetch        6. Self update  #"
     echo "# 7. Time         8. List repos   #"
     echo "###################################"
