@@ -1,30 +1,4 @@
 #!/bin/bash
-# Function to fetch changes from a repository
-fetch_changes() {
-    echo "Fetching changes from a repository..."
-
-    if [ ! -d "$HOME/storage/downloads/github/termux" ]; then
-        echo "The specified directory does not exist."
-        return 1
-    fi
-
-    cd "$HOME/storage/downloads/github/termux"
-
-    if [ ! -d .git ]; then
-        echo "The specified directory is not a Git repository."
-        return 1
-    fi
-
-    git fetch --all
-
-    if [ $? -eq 0 ]; then
-        echo "Changes fetched successfully!"
-        echo "Use 'git branch -a' to see all branches, including remote ones."
-        echo "Use 'git merge' or 'git rebase' to integrate the changes."
-    else
-        echo "Failed to fetch changes. Please check your network and permissions."
-    fi
-}
 
 function list_files() {
     echo "Listing files in the current directory:"
@@ -35,13 +9,46 @@ function go_to_home() {
     cd ~
     echo "Moved to home directory."
 }
-go_to_folder() {
-    read -p "Enter the folder name: " folder
-    if [ -d "$HOME/$folder" ]; then
-        cd "$HOME/$folder"
-        echo "Moved to $folder."
+# Function to push changes to a repository
+function push_changes() {
+    echo "Pushing changes to a repository..."
+    read -p "Enter local repository: " local_dir
+
+    if [ ! -d "$HOME/storage/downloads/Github/$local_dir" ]; then
+        echo "The specified directory does not exist."
+        return 1
+    fi
+
+    cd "$HOME/storage/downloads/Github/$local_dir"
+
+    if [ ! -d .git ]; then
+        echo "The specified directory is not a Git repository."
+        return 1
+    fi
+
+    git status
+
+    read -p "Do you want to stage all changes? (y/n): " stage_all
+    if [ "$stage_all" = "y" ]; then
+        git add .
     else
-        echo "Folder not found."
+        echo "Please use 'git add' to stage your changes manually."
+        return 0
+    fi
+
+    read -p "Enter a commit message: " commit_message
+    git commit -m "$commit_message"
+
+    current_branch=$(git rev-parse --abbrev-ref HEAD)
+    read -p "Enter the remote branch to push to (default: $current_branch): " remote_branch
+    remote_branch=${remote_branch:-$current_branch}
+
+    git push origin "$remote_branch"
+
+    if [ $? -eq 0 ]; then
+        echo "Changes pushed successfully!"
+    else
+        echo "Failed to push changes. Please check your network and permissions."
     fi
 }
 
@@ -60,14 +67,6 @@ clone_repository() {
     echo "Failed to clone repository. Please check the URL and your permissions."
   fi
 }
-function time_now() {
-    date +"%T"
-}
-function sel_f_update() {
-    echo "Updating..."
-    curl -k -o ~/app.sh https://raw.githubusercontent.com/sunresh/termux/main/app.sh && chmod +x ~/app.sh
-    echo "File downloaded and set as executable."
-}
 
 function exit_script() {
     echo "Exiting script..."
@@ -85,7 +84,7 @@ while true; do
     echo "#  GitHub  Operations   Menu:     #"
     echo "###################################"
     echo "# 1. Exit            2. Clone     #"
-    echo "# 3. Home             4. Pull     #"
+    echo "# 3. Home       4. Push repos     #"
     echo "# 5. Fetch        6. Self update  #"
     echo "# 7. Time         8. List repos   #"
     echo "###################################"
@@ -94,9 +93,9 @@ while true; do
 
     case $choice in
         1) exit_script ;;
-        2) sel_f_update ;;
+        2) clone_repository ;;
         3) cdHome ;;
-        4) pull_changes ;;
+        4) push_changes ;;
         5) fetch_changes ;;
         6) updatae ;;
         7) time_now ;;
