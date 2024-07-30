@@ -87,7 +87,7 @@ while true; do
     echo "# 1. Exit            2. Clone     #"
     echo "# 3. Home             4. Pull     #"
     echo "# 5. Fetch        6. Self update  #"
-    echo "# 7. Time                         #"
+    echo "# 7. Time         8. List repos   #"
     echo "###################################"
 
     read -p "Enter your choice (1-7): " choice
@@ -100,6 +100,7 @@ while true; do
         5) fetch_changes ;;
         6) updatae ;;
         7) time_now ;;
+        8) list_files ;;
         *) echo "Invalid choice. Please try again." ;;
     esac
 done
