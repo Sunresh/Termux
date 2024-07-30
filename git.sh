@@ -75,7 +75,7 @@ clone_repository() {
     echo "Cloning a repository from sunresh..."
     read -p "Enter GitHub repo: " repo_name
     # Construct the full local path using the function
-    check_and_create_path "storage/downloads/Github/$repo_name"
+    check_and_create_path "$HOME/storage/downloads/Github/$repo_name"
 
     git clone "https://www.github.com/sunresh/$repo_name" "storage/downloads/Github/$repo_name"
 
@@ -91,12 +91,12 @@ push_changes() {
     echo "Pushing changes to a repository..."
     read -p "Enter the path to your local repository: " local_dir
 
-    if [ ! -d "storage/downloads/Github/$local_dir" ]; then
+    if [ ! -d "$HOME/storage/downloads/Github/$local_dir" ]; then
         echo "The specified directory does not exist."
         return 1
     fi
 
-    cd "storage/downloads/Github/$local_dir"
+    cd "$HOME/storage/downloads/Github/$local_dir"
 
     if [ ! -d .git ]; then
         echo "The specified directory is not a Git repository."
@@ -134,12 +134,12 @@ pull_changes() {
     echo "Pulling changes from a repository..."
     read -p "Enter the path to your local repository: " local_dir
 
-    if [ ! -d "storage/downloads/Github/$local_dir" ]; then
+    if [ ! -d "$HOME/storage/downloads/Github/$local_dir" ]; then
         echo "The specified directory does not exist."
         return 1
     fi
 
-    cd "storage/downloads/Github/$local_dir"
+    cd "$HOME/storage/downloads/Github/$local_dir"
 
     if [ ! -d .git ]; then
         echo "The specified directory is not a Git repository."
@@ -164,12 +164,12 @@ fetch_changes() {
     echo "Fetching changes from a repository..."
     read -p "Enter the path to your local repository: " local_dir
 
-    if [ ! -d "storage/downloads/Github/$local_dir" ]; then
+    if [ ! -d "$HOME/storage/downloads/Github/$local_dir" ]; then
         echo "The specified directory does not exist."
         return 1
     fi
 
-    cd "storage/downloads/Github/$local_dir"
+    cd "$HOME/storage/downloads/Github/$local_dir"
 
     if [ ! -d .git ]; then
         echo "The specified directory is not a Git repository."
