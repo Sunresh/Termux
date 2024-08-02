@@ -58,6 +58,7 @@ clone_repository() {
   read -p "Enter GitHub repo: " repo_name
 
   # check_and_create_path "storage/downloads/Github/$repo_name"
+  find "$HOME/storage/downloads/github/$repo_name" -mindepth 1 -delete
 
   git clone "https://www.github.com/sunresh/$repo_name" "$HOME/storage/downloads/Github/$repo_name"
 
