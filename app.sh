@@ -1,5 +1,9 @@
 #!/bin/bash
 
+function load_home() {
+    source "$HOME/storage/downloads/github/termux/app.sh"
+    echo "Moved to home directory."
+}
 function list_files() {
     echo "Listing files in the current directory:"
     ls -l
@@ -83,7 +87,7 @@ function cdHome(){
   cd "$HOME/storage/downloads/github/termux"
 }
 
-while true; do
+function main() {
     echo "###################################"
     echo "#  GitHub  Operations   Menu:     #"
     echo "###################################"
@@ -106,4 +110,5 @@ while true; do
         8) list_files ;;
         *) echo "Invalid choice. Please try again." ;;
     esac
-done
+}
+main
