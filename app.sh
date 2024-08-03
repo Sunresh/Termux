@@ -2,16 +2,9 @@
 
 function load_home() {
     source "$HOME/storage/downloads/github/termux/app.sh"
-    echo "Moved to home directory."
 }
-function list_files() {
-    echo "Listing files in the current directory:"
-    ls -l
-}
-
-function go_to_home() {
-    cd ~
-    echo "Moved to home directory."
+function load_file() {
+    source "$HOME/storage/downloads/github/termux/$1"
 }
 
 function push_changes() {
@@ -79,15 +72,13 @@ function exit_script() {
 }
 
 function updatae(){
-  find "$HOME/storage/downloads/github/termux" -mindepth 1 -delete
-  git clone "https://www.github.com/sunresh/termux" "$HOME/storage/downloads/github/termux"
-}
-
-function cdHome(){
-  cd "$HOME/storage/downloads/github/termux"
+    clear
+    find "$HOME/storage/downloads/github/termux" -mindepth 1 -delete
+    git clone "https://www.github.com/sunresh/termux" "$HOME/storage/downloads/github/termux"
 }
 
 function g_setup() {
+    clear 
     source "$HOME/storage/downloads/github/termux/g_setup.sh"
 }
 function esr(){
@@ -97,22 +88,19 @@ function git_menu() {
     echo "###################################"
     echo "#  GitHub  Operations   Menu:     #"
     echo "###################################"
-    echo "# 1. Setup            2. test     #"
-    echo "# 3. Home          4. Push repos  #"
-    echo "# 5. Fetch        6. Self update  #"
+    echo "# 1. Setup            2. Clone    #"
+    echo "# 3. Push repos       4. Fetch    #"
+    echo "# 5. Back                         #"
     echo "###################################"
 
-    read -p "Enter your choice (1-7): " choice
+    read -p "Enter your choice: " choice
 
     case $choice in
         1) g_setup ;;
-        2) esr ;;
-        3) go_to_home ;;
-        4) push_changes ;;
-        5) fetch_changes ;;
-        6) update_termux ;;
-        7) time_now ;;
-        8) list_files ;;
+        2) clone_repository ;;
+        3) push_changes ;;
+        4) load_file "c.sh" ;;
+        5) load_home ;;
         *) echo "Invalid choice. Please try again." ;;
     esac
 }
@@ -121,23 +109,17 @@ function main() {
     echo "###################################"
     echo "#  Sunresh  Operations   Menu:    #"
     echo "###################################"
-    echo "# 1. Git             2. Clone     #"
-    echo "# 3. Home          4. Push repos  #"
-    echo "# 5. Fetch        6. Self update  #"
-    echo "# 7. Time         8. List repos   #"
+    echo "# 1. Git              2. Update   #"
+    echo "# 3. Exit             4. clear    #"
     echo "###################################"
 
-    read -p "Enter your choice (1-7): " choice
+    read -p "Enter your choice: " choice
 
     case $choice in
         1) git_menu ;;
-        2) clone_repository ;;
-        3) cdHome ;;
-        4) push_changes ;;
-        5) fetch_changes ;;
-        6) updatae ;;
-        7) time_now ;;
-        8) list_files ;;
+        2) updatae ;;
+        3) exit_script ;;
+        4) clear ;;
         *) echo "Invalid choice. Please try again." ;;
     esac
 }
