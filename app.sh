@@ -121,7 +121,7 @@ function main() {
     echo "###################################"
     echo "#  Sunresh  Operations   Menu:    #"
     echo "###################################"
-    echo "# 1. Exit            2. Clone     #"
+    echo "# 1. Git             2. Clone     #"
     echo "# 3. Home          4. Push repos  #"
     echo "# 5. Fetch        6. Self update  #"
     echo "# 7. Time         8. List repos   #"
@@ -130,7 +130,7 @@ function main() {
     read -p "Enter your choice (1-7): " choice
 
     case $choice in
-        1) exit_script ;;
+        1) git_menu ;;
         2) clone_repository ;;
         3) cdHome ;;
         4) push_changes ;;
