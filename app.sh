@@ -87,9 +87,39 @@ function cdHome(){
   cd "$HOME/storage/downloads/github/termux"
 }
 
-function main() {
+function g_setup() {
+    source "$HOME/storage/downloads/github/termux/g_setup.sh"
+}
+function esr(){
+    source "$HOME/storage/downloads/github/termux/c.sh"
+}
+function git_menu() {
     echo "###################################"
     echo "#  GitHub  Operations   Menu:     #"
+    echo "###################################"
+    echo "# 1. Setup            2. test     #"
+    echo "# 3. Home          4. Push repos  #"
+    echo "# 5. Fetch        6. Self update  #"
+    echo "###################################"
+
+    read -p "Enter your choice (1-7): " choice
+
+    case $choice in
+        1) g_setup ;;
+        2) esr ;;
+        3) go_to_home ;;
+        4) push_changes ;;
+        5) fetch_changes ;;
+        6) update_termux ;;
+        7) time_now ;;
+        8) list_files ;;
+        *) echo "Invalid choice. Please try again." ;;
+    esac
+}
+
+function main() {
+    echo "###################################"
+    echo "#  Sunresh  Operations   Menu:    #"
     echo "###################################"
     echo "# 1. Exit            2. Clone     #"
     echo "# 3. Home          4. Push repos  #"
