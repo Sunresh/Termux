@@ -1,8 +1,5 @@
 #!/bin/bash
 
-function load_home() {
-    source "$HOME/storage/downloads/github/termux/app.sh"
-}
 function load_file() {
     source "$HOME/storage/downloads/github/termux/$1"
 }
@@ -101,11 +98,11 @@ function git_menu() {
         2) clone_repository ;;
         3) push_changes ;;
         4) load_file "g_fetch_change.sh" ;;
-        5) load_home ;;
+        5) load_file "app.sh" ;;
         *) echo "Invalid choice. Please try again." ;;
     esac
 }
-
+function 
 function main() {
     clear
     echo "###################################"
