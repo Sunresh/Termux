@@ -85,6 +85,7 @@ function esr(){
     source "$HOME/storage/downloads/github/termux/c.sh"
 }
 function git_menu() {
+    clear
     echo "###################################"
     echo "#  GitHub  Operations   Menu:     #"
     echo "###################################"
@@ -99,13 +100,14 @@ function git_menu() {
         1) g_setup ;;
         2) clone_repository ;;
         3) push_changes ;;
-        4) load_file "c.sh" ;;
+        4) load_file "g_fetch_change.sh" ;;
         5) load_home ;;
         *) echo "Invalid choice. Please try again." ;;
     esac
 }
 
 function main() {
+    clear
     echo "###################################"
     echo "#  Sunresh  Operations   Menu:    #"
     echo "###################################"
