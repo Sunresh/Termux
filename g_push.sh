@@ -10,7 +10,7 @@ function push_changes() {
 
     cd "$HOME/storage/downloads/Github/$local_dir"
 
-git config --global --add safe.directory /storage/downloads/Github/$local_dir
+    git config --global --add safe.directory /storage/downloads/Github/$local_dir
 
     if [ ! -d .git ]; then
         echo "The specified directory is not a Git repository."
