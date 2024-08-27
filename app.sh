@@ -29,7 +29,7 @@ function git_menu() {
     echo "###################################"
     echo "# 1. Setup            2. Clone    #"
     echo "# 3. Push repos       4. Fetch    #"
-    echo "# 5. Back                         #"
+    echo "# 5. Choose Branch    6. Back     #"
     echo "###################################"
 
     read -p "Enter your choice: " choice
@@ -39,7 +39,8 @@ function git_menu() {
         2) load_file "g_clone.sh" ;;
         3) load_file "g_push.sh" ;;
         4) load_file "g_fetch.sh" ;;
-        5) load_file "app.sh" ;;
+        5) load_file "g_choose.sh" ;;
+        6) load_file "app.sh" ;;
         *) echo "Invalid choice. Please try again." ;;
     esac
 }
