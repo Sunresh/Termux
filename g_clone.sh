@@ -7,7 +7,7 @@ clone_repository() {
   find "$HOME/storage/downloads/github/$repo_name" -mindepth 1 -delete
 
   git clone "https://www.github.com/sunresh/$repo_name" "$HOME/storage/downloads/Github/$repo_name"
-
+  git config --global --add safe.directory /storage/downloads/Github/$repo_name
   if [ $? -eq 0 ]; then
     echo "$repo_name is cloned successfully into storage/downloads/Github/$repo_name"
   else
