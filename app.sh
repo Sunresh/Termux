@@ -1,7 +1,10 @@
 #!/bin/bash
 
+# Declare the global variable
+TERMUX_PATH="$HOME/storage/downloads/github/termux"
+
 function load_file() {
-    source "$HOME/storage/downloads/github/termux/$1"
+    source "$TERMUX_PATH/$1"
 }
 
 function exit_script() {
@@ -9,19 +12,21 @@ function exit_script() {
     exit 0
 }
 
-function updatae(){
+function updatae() {
     clear
-    find "$HOME/storage/downloads/github/termux" -mindepth 1 -delete
-    git clone "https://www.github.com/sunresh/termux" "$HOME/storage/downloads/github/termux"
+    find "$TERMUX_PATH" -mindepth 1 -delete
+    git clone "https://www.github.com/sunresh/termux" "$TERMUX_PATH"
 }
 
 function g_setup() {
     clear 
-    source "$HOME/storage/downloads/github/termux/g_setup.sh"
+    source "$TERMUX_PATH/g_setup.sh"
 }
-function esr(){
-    source "$HOME/storage/downloads/github/termux/c.sh"
+
+function esr() {
+    source "$TERMUX_PATH/c.sh"
 }
+
 function git_menu() {
     clear
     echo "###################################"
@@ -64,4 +69,5 @@ function main() {
         *) echo "Invalid choice. Please try again." ;;
     esac
 }
+
 main

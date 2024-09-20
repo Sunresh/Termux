@@ -1,5 +1,3 @@
-
-
 # Function to set up GitHub CLI
 setup_github_cli() {
     echo "Setting up GitHub CLI..."

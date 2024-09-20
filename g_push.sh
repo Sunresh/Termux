@@ -1,16 +1,18 @@
+# Declare the global variable
+TERMUX_PATH="$HOME/storage/downloads/github"
 
 function push_changes() {
     echo "Pushing changes to a repository..."
     read -p "Enter local repository: " local_dir
 
-    if [ ! -d "$HOME/storage/downloads/Github/$local_dir" ]; then
+    if [ ! -d "$TERMUX_PATH/$local_dir" ]; then
         echo "The specified directory does not exist."
         return 1
     fi
 
-    cd "$HOME/storage/downloads/Github/$local_dir"
+    cd "$TERMUX_PATH/$local_dir"
 
-    git config --global --add safe.directory /storage/downloads/Github/$local_dir
+    git config --global --add safe.directory $TERMUX_PATH/$local_dir
 
     if [ ! -d .git ]; then
         echo "The specified directory is not a Git repository."

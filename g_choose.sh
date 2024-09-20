@@ -1,9 +1,11 @@
+# Declare the global variable
+TERMUX_PATH="$HOME/storage/downloads/github"
 
 # Function to choose the current branch
 current_branch() {
   echo "Choose a repository...from sunresh"
   read -p "Enter GitHub repo: " repo_name
-  repo_path="$HOME/storage/downloads/Github/$repo_name"
+  repo_path="$TERMUX_PATH/$repo_name"
   if [ -d "$repo_path" ]; then
     cd "$repo_path" || exit
     branch=$(git rev-parse --abbrev-ref HEAD)

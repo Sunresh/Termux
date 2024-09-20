@@ -1,15 +1,17 @@
+# Declare the global variable
+TERMUX_PATH="$HOME/storage/downloads/github"
 
 # Function to fetch changes from a repository
 fetch_changes() {
     echo "Fetching changes from a repository..."
     read -p "Enter the path to your local repository: " local_dir
 
-    if [ ! -d "$HOME/storage/downloads/Github/$local_dir" ]; then
+    if [ ! -d "$TERMUX_PATH/$local_dir" ]; then
         echo "The specified directory does not exist."
         return 1
     fi
 
-    cd "$HOME/storage/downloads/Github/$local_dir"
+    cd "$TERMUX_PATH/$local_dir"
 
     if [ ! -d .git ]; then
         echo "The specified directory is not a Git repository."
