@@ -3,6 +3,7 @@
 # Declare the global variable
 TERMUX_PATH="$HOME/storage/emulated/0/Download/github/termux"
 
+mkdir "$TERMUX_PATH"
 function load_file() {
     source "$TERMUX_PATH/$1"
 }
