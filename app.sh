@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Declare the global variable
-TERMUX_PATH="$HOME/storage/downloads/github/termux"
+TERMUX_PATH="$HOME/storage/emulated/0/Download/github/termux"
 
 function load_file() {
     source "$TERMUX_PATH/$1"
