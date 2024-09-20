@@ -1,5 +1,5 @@
 # Declare the global variable
-TERMUX_PATH="$HOME/storage/emulated/0/Download/github"
+TERMUX_PATH="/storage/emulated/0/Download/github"
 
 # Function to clone a repository
 clone_repository() {
