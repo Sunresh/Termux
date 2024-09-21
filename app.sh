@@ -57,7 +57,8 @@ function main() {
     echo "#  Sunresh  Operations   Menu:    #"
     echo "###################################"
     echo "# 1. Git              2. Update   #"
-    echo "# 3. Exit             4. clear    #"
+    echo "# 3. make h command               #"
+    echo "# 4. Exit             5. clear    #"
     echo "###################################"
 
     read -p "Enter your choice: " choice
@@ -65,8 +66,9 @@ function main() {
     case $choice in
         1) git_menu ;;
         2) updatae ;;
-        3) exit_script ;;
-        4) clear ;;
+        3) load_file "init_setup.sh" ;;
+        4) exit_script ;;
+        5) clear ;;
         *) echo "Invalid choice. Please try again." ;;
     esac
 }
