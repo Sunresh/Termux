@@ -2,19 +2,19 @@
 [Click here for web](https://www.github.com/sunresh)
 *If folder alteady exits*
 ```bash
-find "$HOME/storage/downloads/github/termux" -mindepth 1 -delete
+find "$HOME/storage/emulated/0/AppProjects/termux" -mindepth 1 -delete
 ```
 *Create a folder*
 ```bash
-mkdir -p "$HOME/storage/downloads/github"
+mkdir -p "$HOME/storage/emulated/0/AppProjects"
 ```
 *Download termux to above path*
 ```bash
-git clone "https://www.github.com/sunresh/termux" "$HOME/storage/downloads/github/termux"
+git clone "https://www.github.com/sunresh/termux" "$HOME/storage/emulated/0/AppProjects/termux"
 ```
 *Go to the path*
 ```bash
-cd "$HOME/storage/downloads/github/termux"
+cd "$HOME/storage/emulated/0/AppProjects/termux"
 ```
 *If you want to choose branch: eg. v2* 
 ```bash
