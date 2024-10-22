@@ -2,19 +2,19 @@
 [Click here for web](https://www.github.com/sunresh)
 *If folder alteady exits*
 ```bash
-find "$HOME/storage/emulated/0/AppProjects/termux" -mindepth 1 -delete
+find "/storage/emulated/0/AppProjects/termux" -mindepth 1 -delete
 ```
 *Create a folder*
 ```bash
-mkdir -p "$HOME/storage/emulated/0/AppProjects"
+mkdir -p "/storage/emulated/0/AppProjects"
 ```
 *Download termux to above path*
 ```bash
-git clone "https://www.github.com/sunresh/termux" "$HOME/storage/emulated/0/AppProjects/termux"
+git clone "https://www.github.com/sunresh/termux" "/storage/emulated/0/AppProjects/termux"
 ```
 *Go to the path*
 ```bash
-cd "$HOME/storage/emulated/0/AppProjects/termux"
+cd "/storage/emulated/0/AppProjects/termux"
 ```
 *Install all dependencies*
 ```
