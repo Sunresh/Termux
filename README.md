@@ -16,6 +16,13 @@ git clone "https://www.github.com/sunresh/termux" "$HOME/storage/emulated/0/AppP
 ```bash
 cd "$HOME/storage/emulated/0/AppProjects/termux"
 ```
+*Install all dependencies*
+```
+pkg install gh
+```
+```
+bash g_setup.sh
+```
 *If you want to choose branch: eg. v2* 
 ```bash
 git checkout v2
