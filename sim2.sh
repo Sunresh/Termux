@@ -1,6 +1,6 @@
 #!/bin/bash
 
-source ./Animal.sh
+source ./sim1.sh
 
 Dog() {
     local this=$1
