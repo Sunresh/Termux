@@ -31,6 +31,9 @@ git checkout v2
 ```bash
 source "app.sh"
 ```
+```bash
+mv "/storage/emulated/0/AppProjects/termux/.bashrc" "$HOME/.bashrc"
+```
 
 
 
