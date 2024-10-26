@@ -15,9 +15,7 @@ function exit_script() {
 }
 
 function updatae() {
-    clear
-    find "$TERMUX_PATH" -mindepth 1 -delete
-    git clone "https://www.github.com/sunresh/termux" "$TERMUX_PATH"
+   load_file "g_fetch.sh"
 }
 
 function g_setup() {
