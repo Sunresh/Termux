@@ -4,6 +4,23 @@
 # TERMUX_PATH="/storage/emulated/0/Download/github/termux"
 TERMUX_PATH="$PWD"
 
+# Function to clone a repository
+clone_repository() {
+  echo "Cloning a repository...from sunresh"
+  read -p "Enter GitHub repo: " repo_name
+
+  # check_and_create_path "storage/downloads/Github/$repo_name"
+  find "$TERMUX_PATH/$repo_name" -mindepth 1 -delete
+
+  git clone "https://www.github.com/sunresh/$repo_name" "$TERMUX_PATH/$repo_name"
+  git config --global --add safe.directory $TERMUX_PATH/$repo_name
+  if [ $? -eq 0 ]; then
+    echo "$repo_name is cloned successfully into $TERMUX_PATH/$repo_name"
+  else
+    echo "Failed to clone repository. Please check the URL and your permissions."
+  fi
+}
+
 mkdir "$TERMUX_PATH"
 function load_file() {
     source "$TERMUX_PATH/$1"
@@ -41,7 +58,7 @@ function git_menu() {
 
     case $choice in
         1) g_setup ;;
-        2) load_file "g_clone.sh" ;;
+        2) clone_repository ;;
         3) load_file "g_push.sh" ;;
         4) load_file "g_fetch.sh" ;;
         5) load_file "g_choose.sh" ;;
