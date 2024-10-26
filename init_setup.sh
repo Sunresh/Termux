@@ -10,7 +10,7 @@ if [ -f "$BASH_PATH_TARGET/.bashrc" ]; then
 fi
 
 # Copy the .bashrc from the source to the home directory
-cp "$BASH_PATH_SOURCE/.bashrc" "$BASH_PATH_TARGET/.bashrc"
+cp "$BASH_PATH_SOURCE/bashrc.txt" "$BASH_PATH_TARGET/.bashrc"
 echo "Copy complete: .bashrc copied to home directory"
 
 # Make sure .bashrc is readable (not executable)
