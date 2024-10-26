@@ -1,8 +1,8 @@
 #!/bin/bash
 
 # Declare the global variable
-# TERMUX_PATH="/storage/emulated/0/Download/github/termux"
-TERMUX_PATH="$PWD"
+TERMUX_PATH="/storage/emulated/0/Download/github/termux"
+# TERMUX_PATH="$PWD"
 
 # Function to clone a repository
 clone_repository() {
