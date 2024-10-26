@@ -40,9 +40,11 @@ load_config() {
     fi
 }
 
-cdapp(){
-cd "$APP_DIR"
+cdapp() {
+   cd "$APP_DIR"
 }
-home(){
-cd "$HOME"
+
+home() {
+   cd "$HOME"
 }
+
