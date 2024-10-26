@@ -24,11 +24,13 @@ clone_repository() {
 fetch_changes() {
     echo "Fetching changes from a repository..."
     read -p "Enter the path to your local repository: " local_dir
-
+    
     if [ ! -d "$TERMUX_PATH/$local_dir" ]; then
         echo "The specified directory does not exist."
         return 1
     fi
+
+    git config --global --add safe.directory "$TERMUX_PATH/$local_dir"
 
     cd "$TERMUX_PATH/$local_dir"
 
