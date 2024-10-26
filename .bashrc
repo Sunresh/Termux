@@ -43,8 +43,8 @@ load_config() {
 # Alias for quick navigation to app directory
 alias cdapp="cd $APP_DIR"
 cdapp(){
-CD $APP_DIR
+CD "$APP_DIR"
 }
 home(){
-CD $HOME
+CD "$HOME"
 }
