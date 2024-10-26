@@ -15,6 +15,7 @@ edit_app() {
 # Function to update the app from GitHub
 update_app() {
     cd "$APP_DIR"
+    git config --global --add safe.directory $APP_DIR
     git pull
     cd - > /dev/null
 }
