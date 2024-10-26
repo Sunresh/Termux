@@ -1,47 +1,21 @@
-# Function to set up GitHub CLI
-setup_github_cli() {
-    echo "Setting up GitHub CLI..."
-    gh auth login -h github.com -p https -w
-    if [ $? -ne 0 ]; then
-        echo "GitHub CLI setup failed. Exiting."
-        exit 1
-    fi
-}
+#!/bin/bash
 
-# Function to configure Git
-configure_git() {
-    echo "Configuring Git..."
-    read -p "Enter your GitHub username: " github_username
-    read -p "Enter your GitHub email: " github_email
-
-    git config --global user.name "$github_username"
-    git config --global user.email "$github_email"
-}
-
-# Function to set up credential helper
-setup_credential_helper() {
-    echo "Setting up credential helper..."
+setup_github() {
+    # Configure Git
+    read -p "GitHub username: " username
+    read -p "GitHub email: " email
+    git config --global user.name "$username"
+    git config --global user.email "$email"
     git config --global credential.helper store
-}
 
-# Function to prepare for future GUI integration
-prepare_for_gui() {
-    echo "Preparing for future GitHub GUI integration..."
+    # Setup GitHub CLI
+    gh auth login -h github.com -p https -w || { echo "GitHub CLI setup failed"; exit 1; }
+
+    # Prepare for GUI
     mkdir -p ~/.termux-github
-    touch ~/.termux-github/gui_config.json
-    echo '{"gui_enabled": false, "gui_port": 8080}' > ~/.termux-github/gui_config.json
-    echo "GUI configuration file created at ~/.termux-github/gui_config.json"
+    echo '{"gui_enabled":false,"gui_port":8080}' > ~/.termux-github/gui_config.json
+
+    echo "GitHub setup complete. Credentials stored locally."
 }
 
-# Main function
-main() {
-    configure_git
-    setup_github_cli
-    setup_credential_helper
-    prepare_for_gui
-
-    echo "GitHub setup complete!"
-    echo "Your credentials are stored locally and securely."
-    echo "You can now use Git and GitHub CLI in Termux."
-    echo "A configuration file for future GUI integration has been created."
-}
+setup_github
