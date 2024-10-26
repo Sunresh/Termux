@@ -41,8 +41,8 @@ load_config() {
 }
 
 cdapp(){
-CD "$APP_DIR"
+cd "$APP_DIR"
 }
 home(){
-CD "$HOME"
+cd "$HOME"
 }
