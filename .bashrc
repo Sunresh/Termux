@@ -45,3 +45,6 @@ alias cdapp="cd $APP_DIR"
 cdapp(){
 CD $APP_DIR
 }
+home(){
+CD $HOME
+}
