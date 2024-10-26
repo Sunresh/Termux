@@ -20,6 +20,34 @@ clone_repository() {
     echo "Failed to clone repository. Please check the URL and your permissions."
   fi
 }
+# Function to fetch changes from a repository
+fetch_changes() {
+    echo "Fetching changes from a repository..."
+    read -p "Enter the path to your local repository: " local_dir
+
+    if [ ! -d "$TERMUX_PATH/$local_dir" ]; then
+        echo "The specified directory does not exist."
+        return 1
+    fi
+
+    cd "$TERMUX_PATH/$local_dir"
+
+    if [ ! -d .git ]; then
+        echo "The specified directory is not a Git repository."
+        return 1
+    fi
+
+    git fetch --all
+
+    if [ $? -eq 0 ]; then
+        echo "Changes fetched successfully!"
+        echo "Use 'git branch -a' to see all branches, including remote ones."
+        echo "Use 'git merge' or 'git rebase' to integrate the changes."
+    else
+        echo "Failed to fetch changes. Please check your network and permissions."
+    fi
+}
+
 
 mkdir "$TERMUX_PATH"
 function load_file() {
@@ -32,7 +60,7 @@ function exit_script() {
 }
 
 function updatae() {
-   load_file "g_fetch.sh"
+   fetch_changes
 }
 
 function g_setup() {
@@ -60,7 +88,7 @@ function git_menu() {
         1) g_setup ;;
         2) clone_repository ;;
         3) load_file "g_push.sh" ;;
-        4) load_file "g_fetch.sh" ;;
+        4) fetch_changes ;;
         5) load_file "g_choose.sh" ;;
         6) load_file "app.sh" ;;
         *) echo "Invalid choice. Please try again." ;;
