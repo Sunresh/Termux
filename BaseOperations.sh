@@ -3,8 +3,8 @@
 BaseOperations() {
     local this=$1
     # TERMUX_PATH="/storage/emulated/0/Download/github/termux"
-    # TERMUX_PATH="$(pwd)"
-    TERMUX_PATH="$PWD"
+    TERMUX_PATH="$(pwd)"
+    # TERMUX_PATH="$PWD"
     eval "${this}_load_file() { source \"$TERMUX_PATH/\$1\"; }"
     
     eval "${this}_exit_script() { 
