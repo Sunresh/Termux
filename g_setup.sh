@@ -33,13 +33,15 @@ prepare_for_gui() {
     echo "GUI configuration file created at ~/.termux-github/gui_config.json"
 }
 
+# Main function
+main() {
+    configure_git
+    setup_github_cli
+    setup_credential_helper
+    prepare_for_gui
 
-configure_git
-setup_github_cli
-setup_credential_helper
-prepare_for_gui
-
-echo "GitHub setup complete!"
-echo "Your credentials are stored locally and securely."
-echo "You can now use Git and GitHub CLI in Termux."
-echo "A configuration file for future GUI integration has been created."
+    echo "GitHub setup complete!"
+    echo "Your credentials are stored locally and securely."
+    echo "You can now use Git and GitHub CLI in Termux."
+    echo "A configuration file for future GUI integration has been created."
+}
