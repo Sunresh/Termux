@@ -2,30 +2,20 @@
 
 create_bashrc() {
     local bashrc_content='#!/bin/bash
-
-# Global variables
-export APP_DIR="/storage/emulated/0/download/github/termux"
+export APP_DIR="./termux"
 export CONFIG_FILE="$APP_DIR/config.sh"
-
-# Function to source the app script
 h() {
     source "$APP_DIR/app.sh"
 }
-
-# Function to edit the app script
 edit_app() {
     nano "$APP_DIR/app.sh"
 }
-
-# Function to update the app from GitHub
 update_app() {
     cd "$APP_DIR"
     git config --global --add safe.directory $APP_DIR
     git pull
     cd - > /dev/null
 }
-
-# Function to show app status
 app_status() {
     if [ -f "$APP_DIR/app.sh" ]; then
         echo "App script exists"
@@ -34,8 +24,6 @@ app_status() {
         echo "App script not found"
     fi
 }
-
-# Function to load custom configuration
 load_config() {
     if [ -f "$CONFIG_FILE" ]; then
         source "$CONFIG_FILE"
@@ -44,37 +32,22 @@ load_config() {
         echo "Configuration file not found"
     fi
 }
-
 cdapp() {
    cd "$APP_DIR"
 }
-
 home() {
    cd "$HOME"
 }
-
-
 '
-
     echo "$bashrc_content" > "$HOME/.bashrc"
     echo ".bashrc file created successfully in $HOME"
-    
     BASH_PATH_TARGET="$HOME"
-
-    # Make sure .bashrc is readable (not executable)
     chmod 644 "$BASH_PATH_TARGET/.bashrc"
     echo "Permissions set for .bashrc"
-
-    # Source the new .bashrc
     source "$BASH_PATH_TARGET/.bashrc"
     echo "New .bashrc applied"
-
     echo "Setup complete. You can now use custom aliases and configurations."
 }
-
-# Call the function to create .bashrc
-
-# Declare the global variable
 TERMUX_PATH="/storage/emulated/0/Download/github/termux"
 # TERMUX_PATH="$PWD"
 setup_github() {
