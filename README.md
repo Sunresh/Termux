@@ -35,7 +35,7 @@ source "app.sh"
 mv "/storage/emulated/0/AppProjects/termux/.bashrc" "$HOME/.bashrc"
 ```
 
-
+use fish for better suggestions
 
 very first copy the code 
 
