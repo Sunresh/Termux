@@ -79,3 +79,4 @@ alias sunresh='~/path/to/your/h.sh'
 
 This simple method creates an alias, which is a shortcut command that runs your script. It's easy to set up and use.
 
+this is from 
